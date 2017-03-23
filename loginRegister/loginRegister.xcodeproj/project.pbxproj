@@ -16,6 +16,7 @@
 		750EC83F1E82FD53007CCA5C /* loginRegisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC83E1E82FD53007CCA5C /* loginRegisterUITests.swift */; };
 		750EC84D1E83003B007CCA5C /* registerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC84C1E83003B007CCA5C /* registerPageViewController.swift */; };
 		750EC84F1E830E14007CCA5C /* loginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC84E1E830E14007CCA5C /* loginPageViewController.swift */; };
+		750EC8511E8345DF007CCA5C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC8501E8345DF007CCA5C /* WelcomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		750EC8401E82FD53007CCA5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		750EC84C1E83003B007CCA5C /* registerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = registerPageViewController.swift; path = loginRegister/registerPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		750EC84E1E830E14007CCA5C /* loginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = loginPageViewController.swift; path = loginRegister/Assets.xcassets/loginPageViewController.swift; sourceTree = SOURCE_ROOT; };
+		750EC8501E8345DF007CCA5C /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeView.swift; path = loginRegister/WelcomeView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				750EC81B1E82FD53007CCA5C /* AppDelegate.swift */,
 				750EC81F1E82FD53007CCA5C /* Main.storyboard */,
+				750EC8501E8345DF007CCA5C /* WelcomeView.swift */,
 				750EC8251E82FD53007CCA5C /* Assets.xcassets */,
 				750EC8271E82FD53007CCA5C /* LaunchScreen.storyboard */,
 				750EC82A1E82FD53007CCA5C /* Info.plist */,
@@ -268,6 +271,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				750EC8511E8345DF007CCA5C /* WelcomeView.swift in Sources */,
 				750EC8241E82FD53007CCA5C /* loginRegister.xcdatamodeld in Sources */,
 				750EC84F1E830E14007CCA5C /* loginPageViewController.swift in Sources */,
 				750EC84D1E83003B007CCA5C /* registerPageViewController.swift in Sources */,
@@ -516,6 +520,7 @@
 				750EC8451E82FD53007CCA5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		750EC8461E82FD53007CCA5C /* Build configuration list for PBXNativeTarget "loginRegisterTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +529,7 @@
 				750EC8481E82FD53007CCA5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		750EC8491E82FD53007CCA5C /* Build configuration list for PBXNativeTarget "loginRegisterUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +538,7 @@
 				750EC84B1E82FD53007CCA5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

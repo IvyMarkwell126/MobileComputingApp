@@ -18,6 +18,7 @@ class registerPageViewController: UIViewController {
     @IBOutlet var passField: UITextField!
     @IBOutlet var repassField: UITextField!
     @IBOutlet var messageLbl: UILabel!
+    @IBOutlet var RegisterAction: UIButton!
     
     var regisAlert:UIAlertController? = nil
     
@@ -25,6 +26,8 @@ class registerPageViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        self.RegisterAction.layer.cornerRadius = 10;
+
     }
 
     override func didReceiveMemoryWarning() {

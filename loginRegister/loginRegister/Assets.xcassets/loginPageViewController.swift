@@ -17,11 +17,13 @@ class loginPageViewController: UIViewController {
     
     @IBOutlet var usernameField: UITextField!
     @IBOutlet var passwordField: UITextField!
+    @IBOutlet var LoginAction: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.LoginAction.layer.cornerRadius = 10;
     }
 
     override func didReceiveMemoryWarning() {
