@@ -73,12 +73,6 @@ class loginPageViewController: UIViewController {
                 self.present(self.loginAlert!, animated: true, completion:nil)
             }
             else if(userName == testName && passWord == testPass){
-                self.loginAlert = UIAlertController(title: "Success", message: "You have successfully logged in", preferredStyle: UIAlertControllerStyle.alert)
-                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                    //print("Ok Button Pressed 1");
-                }
-                self.loginAlert!.addAction(OKAction)
-                self.present(self.loginAlert!, animated: true, completion:nil)
                 loggedin = true
                 break
             }
