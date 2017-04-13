@@ -13,6 +13,8 @@ public class MenuItem: NSObject {
     public var price:Float
     public var time:Int
     
+    // Variables to be added for - vegan, gluten_free
+    
     init(_title:String, _price:Float, _time: Int)
     {
         title = _title

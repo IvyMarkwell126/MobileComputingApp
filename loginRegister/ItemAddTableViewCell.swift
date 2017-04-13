@@ -9,12 +9,14 @@
 import UIKit
 import CoreData
 
+
+// View cell for adding items in the menu table  
 class ItemAddTableViewCell: UITableViewCell {
     
     var items = [NSManagedObject]()
     var _menuItem:MenuItem?
 
-    
+    // Storing cart items in core data
     func addItem(_itemTitle: String, _itemPrice:Float, _itemTime:Int)
     {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -24,6 +26,8 @@ class ItemAddTableViewCell: UITableViewCell {
         let candidate = NSManagedObject(entity: entity!, insertInto: managedContext)
         
         
+        // Storing data in core data
+        // be sure to add .setValue for any new attributes that need to be added
         
         candidate.setValue(_itemTitle, forKey: "title")
         candidate.setValue(_itemPrice, forKey: "price")
@@ -43,6 +47,8 @@ class ItemAddTableViewCell: UITableViewCell {
     {
         print(_menuItem?.title)
         print(_menuItem?.price)
+        
+        // Will add the selected item to the session cart
         addItem(_itemTitle: (_menuItem?.title)!, _itemPrice: (_menuItem?.price)!, _itemTime: (_menuItem?.time)!)
     }
     

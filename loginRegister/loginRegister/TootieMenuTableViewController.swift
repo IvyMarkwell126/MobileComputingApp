@@ -15,14 +15,33 @@ class TootieMenuTableViewController: UITableViewController {
     
     private func createMenuItems()
     {
-        let veggie = MenuItem.init(_title:"Veggie Sandwich", _price:12.95, _time:3)
-        let french = MenuItem.init(_title:"French Fries", _price:6.95, _time:1)
-        let drink = MenuItem.init(_title:"Dr. Pepper", _price:4.95, _time:10)
-        let desert = MenuItem.init(_title:"ChocoChip", _price:25.95, _time:30)
+        let itClub = MenuItem.init(_title:"Italian Club", _price:7.00, _time:10)
+        let blt = MenuItem.init(_title:"BLT", _price:5.95, _time:7)
+        let rueben = MenuItem.init(_title:"Rueben", _price:5.95, _time:10)
+        let meatball = MenuItem.init(_title:"Meatball", _price:7.00, _time:10)
+        let veggie = MenuItem.init(_title:"Veggie Sandwich", _price:5.95, _time:7)
         
+        let french = MenuItem.init(_title:"French Fries", _price:1.95, _time:3)
+        let onion = MenuItem.init(_title:"Onion Rings", _price: 2.95, _time: 4)
+        let tator = MenuItem.init(_title: "Tator Tots", _price: 1.95, _time:2)
+        
+        let drink = MenuItem.init(_title:"Dr. Pepper", _price:1.50, _time:1)
+        let drink2 = MenuItem.init(_title: "Sprite", _price: 1.50, _time: 1)
+        let drink3 = MenuItem.init(_title: "Coke", _price: 1.50, _time: 1)
+        
+        let desert = MenuItem.init(_title:"ChocolateChip Cookie", _price:0.50, _time:1)
+        
+        menuItems.append(itClub)
+        menuItems.append(blt)
+        menuItems.append(meatball)
+        menuItems.append(rueben)
         menuItems.append(veggie)
         menuItems.append(french)
+        menuItems.append(onion)
+        menuItems.append(tator)
         menuItems.append(drink)
+        menuItems.append(drink2)
+        menuItems.append(drink3)
         menuItems.append(desert)
     }
     

@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class registerPageViewController: UIViewController {
+class registerPageViewController: UIViewController, UITextFieldDelegate {
 
     var user: NSManagedObject?
     var users = [NSManagedObject]()
@@ -26,7 +26,11 @@ class registerPageViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.RegisterAction.layer.cornerRadius = 10;
+        //self.RegisterAction.layer.cornerRadius = 10;
+        
+        usrField.delegate = self
+        passField.delegate = self
+        repassField.delegate = self
 
     }
 
@@ -115,6 +119,7 @@ class registerPageViewController: UIViewController {
         
         candidate.setValue(passedLogin, forKey: "username")
         candidate.setValue(passedPassword, forKey: "password")
+        candidate.setValue(true, forKey: "loggedIn")
         
         do {
             try managedContext.save()
@@ -124,6 +129,19 @@ class registerPageViewController: UIViewController {
             print("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    //
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }

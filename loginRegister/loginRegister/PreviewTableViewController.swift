@@ -11,10 +11,12 @@ import CoreData
 
 class PreviewTableViewController: UITableViewController {
     
+    var users = [NSManagedObject]()
     var cart = [NSManagedObject]()
     
     var totalPrice:Float = 0
     var totalTime:Int = 0
+    var completeOrder:String = ""
     
     @IBOutlet var previewTable: UITableView!
     
@@ -22,6 +24,10 @@ class PreviewTableViewController: UITableViewController {
     
     @IBAction func confirmOrderBtn(_ sender: Any)
     {
+        // Delete the items in the cart (core data) so they do not persist in an additional order
+        // Will segue to ConfirmationViewController, which has the item details
+        
+        
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Item")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
@@ -33,6 +39,43 @@ class PreviewTableViewController: UITableViewController {
         
         catch let error as NSError{
             print(error)
+        }
+        
+        registerOrder(completeOrder:completeOrder)
+
+    }
+    
+    func registerOrder(completeOrder:String){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        let usernameFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        
+        var fetchedUser:[NSManagedObject]? = nil
+        
+        do {
+            try fetchedUser = managedContext.fetch(usernameFetch) as? [NSManagedObject]//! [loggedIn]
+        }
+        catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
+        print("here")
+        if let results = fetchedUser {
+            users = results
+            print("\(users.count)")
+        } else {
+            print("Could not fetch")
+        }
+        
+        for elt in users {
+            let testName = (elt.value(forKey: "loggedIn") as? Bool)!
+            if testName {
+                print("\(elt.value(forKey: "username")) is logged in")
+            }
+            print("\(testName)")
         }
     }
 
@@ -70,6 +113,7 @@ class PreviewTableViewController: UITableViewController {
             
             totalPrice += testPrice
             totalTime += testTime
+            completeOrder += testName
 
             
         }
@@ -176,6 +220,9 @@ class PreviewTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
         if(segue.identifier == "ConfirmOrderSegue")
         {
+            // Pass the items in the cart to the ConfirmationViewController to show
+            // total time and dollar amount
+            
             let viewController = segue.destination as! ConfirmationViewController
             viewController._orderTotal = totalPrice
             viewController._orderTime = totalTime

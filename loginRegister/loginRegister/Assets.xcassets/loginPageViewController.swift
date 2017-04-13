@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class loginPageViewController: UIViewController {
+class loginPageViewController: UIViewController, UITextFieldDelegate {
 
     var user: NSManagedObject?
     var users = [NSManagedObject]()
@@ -21,9 +21,21 @@ class loginPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.loadData()
+        
+        for elt in users {
+            let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
+            if isLoggedIn {
+                print("\(elt.value(forKey: "username")) is logged in")
+                performSegue(withIdentifier: "login2Main", sender: nil)
+                break
+            }
+        }
         // Do any additional setup after loading the view.
-        self.LoginAction.layer.cornerRadius = 10;
+        //self.LoginAction.layer.cornerRadius = 10;
+        
+        usernameField.delegate = self
+        passwordField.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,16 +65,14 @@ class loginPageViewController: UIViewController {
         }
     }
     
-    
-    
     @IBAction func loginBtn(_ sender: Any) {
-        self.loadData()
+        
         let userName = usernameField.text
         let passWord = passwordField.text
         var loggedin = false
         for elt in users {
-            var testName = (elt.value(forKey: "username") as? String)!
-            var testPass = (elt.value(forKey: "password") as? String)!
+            let testName = (elt.value(forKey: "username") as? String)!
+            let testPass = (elt.value(forKey: "password") as? String)!
             print ("\(testName) \(testPass)")
             if(userName == "" || passWord == ""){
                 self.loginAlert = UIAlertController(title: "Error", message: "You cannot leave either field blank", preferredStyle: UIAlertControllerStyle.alert)
@@ -73,6 +83,20 @@ class loginPageViewController: UIViewController {
                 self.present(self.loginAlert!, animated: true, completion:nil)
             }
             else if(userName == testName && passWord == testPass){
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                let managedContext = appDelegate.persistentContainer.viewContext
+                
+                elt.setValue(true, forKey: "loggedIn")
+                
+                do {
+                    try managedContext.save()
+                } catch {
+                    // what to do if an error occurs?
+                    let nserror = error as NSError
+                    print("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
+                
                 loggedin = true
                 break
             }
@@ -85,6 +109,19 @@ class loginPageViewController: UIViewController {
             self.loginAlert!.addAction(OKAction)
             self.present(self.loginAlert!, animated: true, completion:nil)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    //
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }

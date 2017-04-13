@@ -19,8 +19,8 @@ class ConfirmationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        orderTime.text = String(_orderTime)
-        orderTotal.text = String(_orderTotal)
+        orderTime.text = "\(_orderTime) minutes"
+        orderTotal.text = "$\(_orderTotal)"
 
         // Do any additional setup after loading the view.
     }

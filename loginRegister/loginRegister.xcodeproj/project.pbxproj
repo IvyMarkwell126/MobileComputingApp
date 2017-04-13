@@ -19,12 +19,15 @@
 		7D1FDAEE1E853505007936A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAED1E853505007936A3 /* AppDelegate.swift */; };
 		7D1FDAF11E85352D007936A3 /* loginRegister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAEF1E85352D007936A3 /* loginRegister.xcdatamodeld */; };
 		7D1FDAF31E853583007936A3 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAF21E853583007936A3 /* MenuItem.swift */; };
+		7DAC18B31E9EDAD300ABFAD5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */; };
 		7DB2F9B71E853B90008CE06B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB2F9B51E853B90008CE06B /* LaunchScreen.storyboard */; };
 		7DB2F9B91E853BAB008CE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB2F9B81E853BAB008CE06B /* Assets.xcassets */; };
 		7DDF77451E8577F80063BE95 /* PreviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF77441E8577F80063BE95 /* PreviewTableViewController.swift */; };
 		7DDF77481E857CEF0063BE95 /* ItemPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF77471E857CEF0063BE95 /* ItemPreviewTableViewCell.swift */; };
 		7DDF774A1E8581B10063BE95 /* ItemRemoveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF77491E8581B10063BE95 /* ItemRemoveTableViewCell.swift */; };
 		7DDF774C1E8592330063BE95 /* ConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF774B1E8592330063BE95 /* ConfirmationViewController.swift */; };
+		7DF7802C1E9DAA30005C308C /* PastOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */; };
+		7DF7802E1E9DAA5E005C308C /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,12 +66,15 @@
 		7D1FDAED1E853505007936A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = /Users/am52443/Desktop/loginRegister/loginRegister/AppDelegate.swift; sourceTree = "<absolute>"; };
 		7D1FDAF01E85352D007936A3 /* loginRegister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = loginRegister.xcdatamodel; sourceTree = "<group>"; };
 		7D1FDAF21E853583007936A3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = /Users/am52443/Desktop/loginRegister/loginRegister/MenuItem.swift; sourceTree = "<absolute>"; };
+		7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DB2F9B61E853B90008CE06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = loginRegister/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB2F9B81E853BAB008CE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/am52443/Desktop/loginRegister/loginRegister/Assets.xcassets; sourceTree = "<absolute>"; };
 		7DDF77441E8577F80063BE95 /* PreviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewTableViewController.swift; path = loginRegister/PreviewTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DDF77471E857CEF0063BE95 /* ItemPreviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPreviewTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7DDF77491E8581B10063BE95 /* ItemRemoveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRemoveTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7DDF774B1E8592330063BE95 /* ConfirmationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmationViewController.swift; sourceTree = SOURCE_ROOT; };
+		7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrderTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +130,14 @@
 				7D1FDAED1E853505007936A3 /* AppDelegate.swift */,
 				750EC8501E8345DF007CCA5C /* WelcomeView.swift */,
 				7D1FDAF21E853583007936A3 /* MenuItem.swift */,
+				7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */,
 				7DB2F9B51E853B90008CE06B /* LaunchScreen.storyboard */,
 				7DB2F9B81E853BAB008CE06B /* Assets.xcassets */,
 				750EC82A1E82FD53007CCA5C /* Info.plist */,
 				7D1FDAEF1E85352D007936A3 /* loginRegister.xcdatamodeld */,
 				750EC84C1E83003B007CCA5C /* registerPageViewController.swift */,
 				750EC84E1E830E14007CCA5C /* loginPageViewController.swift */,
+				7DF7802A1E9DA86B005C308C /* Order History Controllers */,
 				7DDF77461E8577FE0063BE95 /* Preview View Controllers */,
 				75D6B3E21E8487750041A88F /* Menu View Controllers */,
 			);
@@ -175,6 +183,15 @@
 				7DDF77491E8581B10063BE95 /* ItemRemoveTableViewCell.swift */,
 			);
 			name = "Preview View Controllers";
+			sourceTree = "<group>";
+		};
+		7DF7802A1E9DA86B005C308C /* Order History Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */,
+				7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */,
+			);
+			name = "Order History Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,10 +334,13 @@
 				7D1FDAEE1E853505007936A3 /* AppDelegate.swift in Sources */,
 				7DDF774A1E8581B10063BE95 /* ItemRemoveTableViewCell.swift in Sources */,
 				7D1FDAE91E8534A9007936A3 /* ItemAddTableViewCell.swift in Sources */,
+				7DF7802E1E9DAA5E005C308C /* OrderViewCell.swift in Sources */,
+				7DAC18B31E9EDAD300ABFAD5 /* SettingsViewController.swift in Sources */,
 				7DDF77451E8577F80063BE95 /* PreviewTableViewController.swift in Sources */,
 				7D1FDAE71E85347D007936A3 /* ItemDetailsTableViewCell.swift in Sources */,
 				750EC8511E8345DF007CCA5C /* WelcomeView.swift in Sources */,
 				759A34571E84B05700578F37 /* TootieMenuTableViewController.swift in Sources */,
+				7DF7802C1E9DAA30005C308C /* PastOrderTableViewController.swift in Sources */,
 				750EC84F1E830E14007CCA5C /* loginPageViewController.swift in Sources */,
 				7DDF774C1E8592330063BE95 /* ConfirmationViewController.swift in Sources */,
 				750EC84D1E83003B007CCA5C /* registerPageViewController.swift in Sources */,
