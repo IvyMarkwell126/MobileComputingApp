@@ -25,7 +25,6 @@ class ItemAddTableViewCell: UITableViewCell {
         let entity =  NSEntityDescription.entity(forEntityName: "Item", in: managedContext)
         let candidate = NSManagedObject(entity: entity!, insertInto: managedContext)
         
-        
         // Storing data in core data
         // be sure to add .setValue for any new attributes that need to be added
         

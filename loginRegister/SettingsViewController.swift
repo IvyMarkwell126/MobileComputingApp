@@ -11,6 +11,12 @@ import CoreData
 
 class SettingsViewController: UIViewController {
     
+    @IBOutlet weak var veganSegCont: UISegmentedControl!
+    @IBOutlet weak var gluteSegCont: UISegmentedControl!
+    
+    var isVegan:Bool = false
+    var isGlute:Bool = false
+    
     @IBOutlet weak var userLbl: UILabel!
     var users = [NSManagedObject]()
     var user:NSManagedObject?
@@ -78,14 +84,28 @@ class SettingsViewController: UIViewController {
         }
     }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func saveChangesBtn(_ sender: Any) {
+        switch veganSegCont.selectedSegmentIndex {
+        case 0:
+            isVegan = false
+        case 1:
+            isVegan = true
+        default:
+            isVegan = false
+        }
+        switch gluteSegCont.selectedSegmentIndex {
+        case 0:
+            isGlute = false
+        case 1:
+            isGlute = true
+        default:
+            isGlute = false
+        }
+        print(isVegan, isGlute)
     }
-    */
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+    }
 
 }

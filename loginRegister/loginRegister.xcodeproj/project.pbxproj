@@ -12,15 +12,15 @@
 		750EC84D1E83003B007CCA5C /* registerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC84C1E83003B007CCA5C /* registerPageViewController.swift */; };
 		750EC84F1E830E14007CCA5C /* loginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC84E1E830E14007CCA5C /* loginPageViewController.swift */; };
 		750EC8511E8345DF007CCA5C /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750EC8501E8345DF007CCA5C /* WelcomeView.swift */; };
+		75121B041EA0377E00DD4911 /* loginRegister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 75121B021EA0377E00DD4911 /* loginRegister.xcdatamodeld */; };
+		75121B071EA0380B00DD4911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75121B051EA0380B00DD4911 /* LaunchScreen.storyboard */; };
 		759A34571E84B05700578F37 /* TootieMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A34561E84B05700578F37 /* TootieMenuTableViewController.swift */; };
 		75C6BF6F1E84AAE8004E336B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C6BF6E1E84AAE8004E336B /* Main.storyboard */; };
 		7D1FDAE71E85347D007936A3 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */; };
 		7D1FDAE91E8534A9007936A3 /* ItemAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */; };
 		7D1FDAEE1E853505007936A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAED1E853505007936A3 /* AppDelegate.swift */; };
-		7D1FDAF11E85352D007936A3 /* loginRegister.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAEF1E85352D007936A3 /* loginRegister.xcdatamodeld */; };
 		7D1FDAF31E853583007936A3 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAF21E853583007936A3 /* MenuItem.swift */; };
 		7DAC18B31E9EDAD300ABFAD5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */; };
-		7DB2F9B71E853B90008CE06B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DB2F9B51E853B90008CE06B /* LaunchScreen.storyboard */; };
 		7DB2F9B91E853BAB008CE06B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DB2F9B81E853BAB008CE06B /* Assets.xcassets */; };
 		7DDF77451E8577F80063BE95 /* PreviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF77441E8577F80063BE95 /* PreviewTableViewController.swift */; };
 		7DDF77481E857CEF0063BE95 /* ItemPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DDF77471E857CEF0063BE95 /* ItemPreviewTableViewCell.swift */; };
@@ -59,15 +59,15 @@
 		750EC84C1E83003B007CCA5C /* registerPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = registerPageViewController.swift; path = loginRegister/registerPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		750EC84E1E830E14007CCA5C /* loginPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = loginPageViewController.swift; path = loginRegister/Assets.xcassets/loginPageViewController.swift; sourceTree = SOURCE_ROOT; };
 		750EC8501E8345DF007CCA5C /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeView.swift; path = loginRegister/WelcomeView.swift; sourceTree = SOURCE_ROOT; };
+		75121B031EA0377E00DD4911 /* loginRegister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = loginRegister.xcdatamodel; sourceTree = "<group>"; };
+		75121B061EA0380B00DD4911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = loginRegister/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759A34561E84B05700578F37 /* TootieMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TootieMenuTableViewController.swift; path = loginRegister/TootieMenuTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		75C6BF6E1E84AAE8004E336B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
 		7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7D1FDAED1E853505007936A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = loginRegister/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
-		7D1FDAF01E85352D007936A3 /* loginRegister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = loginRegister.xcdatamodel; sourceTree = "<group>"; };
 		7D1FDAF21E853583007936A3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = loginRegister/MenuItem.swift; sourceTree = SOURCE_ROOT; };
 		7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
-		7DB2F9B61E853B90008CE06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = loginRegister/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7DB2F9B81E853BAB008CE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = loginRegister/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7DDF77441E8577F80063BE95 /* PreviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewTableViewController.swift; path = loginRegister/PreviewTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DDF77471E857CEF0063BE95 /* ItemPreviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPreviewTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -131,11 +131,11 @@
 				750EC8501E8345DF007CCA5C /* WelcomeView.swift */,
 				7D1FDAF21E853583007936A3 /* MenuItem.swift */,
 				7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */,
-				7DB2F9B51E853B90008CE06B /* LaunchScreen.storyboard */,
+				75121B051EA0380B00DD4911 /* LaunchScreen.storyboard */,
 				7DB2F9B81E853BAB008CE06B /* Assets.xcassets */,
 				750EC82A1E82FD53007CCA5C /* Info.plist */,
-				7D1FDAEF1E85352D007936A3 /* loginRegister.xcdatamodeld */,
 				750EC84C1E83003B007CCA5C /* registerPageViewController.swift */,
+				75121B021EA0377E00DD4911 /* loginRegister.xcdatamodeld */,
 				750EC84E1E830E14007CCA5C /* loginPageViewController.swift */,
 				7DF7802A1E9DA86B005C308C /* Order History Controllers */,
 				7DDF77461E8577FE0063BE95 /* Preview View Controllers */,
@@ -300,8 +300,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75121B071EA0380B00DD4911 /* LaunchScreen.storyboard in Resources */,
 				7DB2F9B91E853BAB008CE06B /* Assets.xcassets in Resources */,
-				7DB2F9B71E853B90008CE06B /* LaunchScreen.storyboard in Resources */,
 				75C6BF6F1E84AAE8004E336B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,8 +327,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75121B041EA0377E00DD4911 /* loginRegister.xcdatamodeld in Sources */,
 				7D1FDAF31E853583007936A3 /* MenuItem.swift in Sources */,
-				7D1FDAF11E85352D007936A3 /* loginRegister.xcdatamodeld in Sources */,
 				7DDF77481E857CEF0063BE95 /* ItemPreviewTableViewCell.swift in Sources */,
 				7D1FDAEE1E853505007936A3 /* AppDelegate.swift in Sources */,
 				7DDF774A1E8581B10063BE95 /* ItemRemoveTableViewCell.swift in Sources */,
@@ -378,14 +378,13 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7DB2F9B51E853B90008CE06B /* LaunchScreen.storyboard */ = {
+		75121B051EA0380B00DD4911 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7DB2F9B61E853B90008CE06B /* Base */,
+				75121B061EA0380B00DD4911 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			path = /Users/am52443/Desktop/loginRegister;
-			sourceTree = "<absolute>";
+			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
 
@@ -603,15 +602,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7D1FDAEF1E85352D007936A3 /* loginRegister.xcdatamodeld */ = {
+		75121B021EA0377E00DD4911 /* loginRegister.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7D1FDAF01E85352D007936A3 /* loginRegister.xcdatamodel */,
+				75121B031EA0377E00DD4911 /* loginRegister.xcdatamodel */,
 			);
-			currentVersion = 7D1FDAF01E85352D007936A3 /* loginRegister.xcdatamodel */;
+			currentVersion = 75121B031EA0377E00DD4911 /* loginRegister.xcdatamodel */;
 			name = loginRegister.xcdatamodeld;
-			path = /Users/am52443/Desktop/loginRegister/loginRegister/loginRegister.xcdatamodeld;
-			sourceTree = "<absolute>";
+			path = loginRegister/loginRegister.xcdatamodeld;
+			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */

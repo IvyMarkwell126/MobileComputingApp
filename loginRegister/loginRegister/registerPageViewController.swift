@@ -69,6 +69,7 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
         
         for elt in users{
             let testName = (elt.value(forKey: "username") as? String)!
+            print(testName, userName)
             if(testName == userName){
                 self.regisAlert = UIAlertController(title: "Error", message: "Username already taken", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
