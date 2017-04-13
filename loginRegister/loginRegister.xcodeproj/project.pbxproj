@@ -61,14 +61,14 @@
 		750EC8501E8345DF007CCA5C /* WelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WelcomeView.swift; path = loginRegister/WelcomeView.swift; sourceTree = SOURCE_ROOT; };
 		759A34561E84B05700578F37 /* TootieMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TootieMenuTableViewController.swift; path = loginRegister/TootieMenuTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		75C6BF6E1E84AAE8004E336B /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = SOURCE_ROOT; };
-		7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemDetailsTableViewCell.swift; path = /Users/am52443/Desktop/loginRegister/ItemDetailsTableViewCell.swift; sourceTree = "<absolute>"; };
-		7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ItemAddTableViewCell.swift; path = /Users/am52443/Desktop/loginRegister/ItemAddTableViewCell.swift; sourceTree = "<absolute>"; };
-		7D1FDAED1E853505007936A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = /Users/am52443/Desktop/loginRegister/loginRegister/AppDelegate.swift; sourceTree = "<absolute>"; };
+		7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		7D1FDAED1E853505007936A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = loginRegister/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
 		7D1FDAF01E85352D007936A3 /* loginRegister.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = loginRegister.xcdatamodel; sourceTree = "<group>"; };
-		7D1FDAF21E853583007936A3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = /Users/am52443/Desktop/loginRegister/loginRegister/MenuItem.swift; sourceTree = "<absolute>"; };
+		7D1FDAF21E853583007936A3 /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MenuItem.swift; path = loginRegister/MenuItem.swift; sourceTree = SOURCE_ROOT; };
 		7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DB2F9B61E853B90008CE06B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = loginRegister/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7DB2F9B81E853BAB008CE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = /Users/am52443/Desktop/loginRegister/loginRegister/Assets.xcassets; sourceTree = "<absolute>"; };
+		7DB2F9B81E853BAB008CE06B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = loginRegister/Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		7DDF77441E8577F80063BE95 /* PreviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PreviewTableViewController.swift; path = loginRegister/PreviewTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DDF77471E857CEF0063BE95 /* ItemPreviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemPreviewTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7DDF77491E8581B10063BE95 /* ItemRemoveTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRemoveTableViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -142,8 +142,7 @@
 				75D6B3E21E8487750041A88F /* Menu View Controllers */,
 			);
 			name = loginRegister;
-			path = /u/abelm/Desktop/loginRegister/loginRegister;
-			sourceTree = "<absolute>";
+			sourceTree = SOURCE_ROOT;
 		};
 		750EC8321E82FD53007CCA5C /* loginRegisterTests */ = {
 			isa = PBXGroup;
