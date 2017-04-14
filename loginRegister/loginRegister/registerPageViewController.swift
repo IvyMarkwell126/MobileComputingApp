@@ -66,48 +66,56 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
         let userName = usrField.text!
         let passWord = passField.text!
         let rePassWord = repassField.text!
+        var isTaken = false
         
         for elt in users{
             let testName = (elt.value(forKey: "username") as? String)!
             print(testName, userName)
             if(testName == userName){
-                self.regisAlert = UIAlertController(title: "Error", message: "Username already taken", preferredStyle: UIAlertControllerStyle.alert)
+                isTaken = true
+                
+                regisAlert = UIAlertController(title: "Error", message: "Username already taken", preferredStyle: UIAlertControllerStyle.alert)
+                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                    //print("Ok Button Pressed 1");
+                }
+                regisAlert!.addAction(OKAction)
+                present(self.regisAlert!, animated: true, completion:nil)
+                break
+            }
+        }
+        
+        if(!isTaken){
+        
+            if (usrField.text == "" || passField.text == "" || repassField.text == "") {
+                self.regisAlert = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
+                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                //print("Ok Button Pressed 1");
+                }
+                self.regisAlert!.addAction(OKAction)
+                self.present(self.regisAlert!, animated: true, completion:nil)
+            }
+            
+            else if (passWord != rePassWord){
+                self.regisAlert = UIAlertController(title: "Error", message: "Passwords do not match", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
                     //print("Ok Button Pressed 1");
                 }
                 self.regisAlert!.addAction(OKAction)
                 self.present(self.regisAlert!, animated: true, completion:nil)
             }
-        }
-        
-        if (usrField.text == "" || passField.text == "" || repassField.text == "") {
-            self.regisAlert = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
+            else{
+            
+                registerUser(passedLogin: userName, passedPassword: passWord, passedRePass: rePassWord)
+            
+                self.regisAlert = UIAlertController(title: "Success", message: "New User Registered", preferredStyle: UIAlertControllerStyle.alert)
+                let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                    self.performSegue(withIdentifier: "register2main", sender: nil)
+                }
+                self.regisAlert!.addAction(OKAction)
+                self.present(self.regisAlert!, animated: true, completion:nil)
+                
+            
             }
-            self.regisAlert!.addAction(OKAction)
-            self.present(self.regisAlert!, animated: true, completion:nil)
-        }
-            
-        else if (passWord != rePassWord){
-            self.regisAlert = UIAlertController(title: "Error", message: "Passwords do not match", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
-            }
-            self.regisAlert!.addAction(OKAction)
-            self.present(self.regisAlert!, animated: true, completion:nil)
-        }
-        else{
-            
-            registerUser(passedLogin: userName, passedPassword: passWord, passedRePass: rePassWord)
-            
-            self.regisAlert = UIAlertController(title: "Success", message: "New User Registered", preferredStyle: UIAlertControllerStyle.alert)
-            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
-            }
-            self.regisAlert!.addAction(OKAction)
-            self.present(self.regisAlert!, animated: true, completion:nil)
-            
         }
     }
     

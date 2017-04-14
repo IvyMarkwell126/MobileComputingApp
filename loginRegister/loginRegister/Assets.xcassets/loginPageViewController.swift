@@ -27,7 +27,7 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
             let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
             if isLoggedIn {
                 print("\(elt.value(forKey: "username")) is logged in")
-                performSegue(withIdentifier: "login2Main", sender: nil)
+                performSegue(withIdentifier: "login2main", sender: nil)
                 break
             }
         }
@@ -81,6 +81,7 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
                 }
                 self.loginAlert!.addAction(OKAction)
                 self.present(self.loginAlert!, animated: true, completion:nil)
+                break
             }
             else if(userName == testName && passWord == testPass){
                 let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -98,6 +99,7 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
                 }
                 
                 loggedin = true
+                performSegue(withIdentifier: "login2main", sender: nil)
                 break
             }
         }

@@ -80,9 +80,6 @@
                                 </state>
                                 <connections>
                                     <action selector="saveBtn:" destination="oKO-we-FJT" eventType="touchUpInside" id="9S4-e6-7fC"/>
-                                    <segue destination="C5B-CX-UgO" kind="popoverPresentation" popoverAnchorView="REQ-WT-Xj3" id="HtA-de-aoh">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Register a new user" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pem-0e-6J6">
@@ -102,6 +99,7 @@
                         <outlet property="passField" destination="fQr-6N-yQg" id="JO3-h3-EdJ"/>
                         <outlet property="repassField" destination="pic-E8-TiK" id="tIE-aG-m8G"/>
                         <outlet property="usrField" destination="hUP-oH-J0s" id="ZX9-nO-JBK"/>
+                        <segue destination="C5B-CX-UgO" kind="presentation" identifier="register2main" id="Va9-Pe-w9L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lm3-qK-JBV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -374,9 +372,6 @@
                                 </state>
                                 <connections>
                                     <action selector="loginBtn:" destination="PY7-eO-6r7" eventType="touchUpInside" id="w4n-Dn-y7Y"/>
-                                    <segue destination="C5B-CX-UgO" kind="popoverPresentation" identifier="login2Main" popoverAnchorView="nUq-lG-lUe" id="I0U-7Z-DG4">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
                                 </connections>
                             </button>
                         </subviews>
@@ -388,6 +383,7 @@
                         <outlet property="passwordField" destination="WEO-0f-iOP" id="Rii-fQ-IH2"/>
                         <outlet property="usernameField" destination="5gG-oY-CYd" id="BUf-KT-wkR"/>
                         <outlet property="view" destination="VQY-8a-wmA" id="usA-M1-CmK"/>
+                        <segue destination="C5B-CX-UgO" kind="presentation" identifier="login2main" id="rcr-ij-TDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pn5-4T-5bk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -797,6 +793,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C5B-CX-UgO" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="z4D-pO-Vef"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="aJL-XE-oEx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -812,6 +809,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="HtA-de-aoh"/>
+        <segue reference="Va9-Pe-w9L"/>
     </inferredMetricsTieBreakers>
 </document>
