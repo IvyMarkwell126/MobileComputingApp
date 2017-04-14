@@ -11,7 +11,6 @@ import CoreData
 
 class registerPageViewController: UIViewController, UITextFieldDelegate {
 
-    var user: NSManagedObject?
     var users = [NSManagedObject]()
     
     @IBOutlet var usrField: UITextField!
@@ -124,11 +123,13 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
         let managedContext = appDelegate.persistentContainer.viewContext
         
         let entity =  NSEntityDescription.entity(forEntityName: "User", in: managedContext)
-        let candidate = NSManagedObject(entity: entity!, insertInto: managedContext)
+        let user = NSManagedObject(entity: entity!, insertInto: managedContext)
         
-        candidate.setValue(passedLogin, forKey: "username")
-        candidate.setValue(passedPassword, forKey: "password")
-        candidate.setValue(true, forKey: "loggedIn")
+        user.setValue(passedLogin, forKey: "username")
+        user.setValue(passedPassword, forKey: "password")
+        user.setValue(true, forKey: "loggedIn")
+        user.setValue(false, forKey: "vegan")
+        user.setValue(false, forKey: "glutenFree")
         
         do {
             try managedContext.save()

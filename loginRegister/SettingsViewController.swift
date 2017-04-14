@@ -58,6 +58,15 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         loginCheck()
         userLbl.text = (user?.value(forKey: "username") as? String)!
+        let vegCheck = (user?.value(forKey: "vegan") as? Bool)!
+        let gltCheck = (user?.value(forKey: "glutenFree") as? Bool)!
+        if (vegCheck){
+            veganSegCont.selectedSegmentIndex = 1
+        }
+        if (gltCheck){
+            gluteSegCont.selectedSegmentIndex = 1
+        }
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
@@ -102,6 +111,21 @@ class SettingsViewController: UIViewController {
             isGlute = false
         }
         print(isVegan, isGlute)
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let managedContext = appDelegate.persistentContainer.viewContext
+        
+        user?.setValue(isVegan, forKey: "vegan")
+        user?.setValue(isGlute, forKey: "glutenFree")
+        
+        do {
+            try managedContext.save()
+        } catch {
+            // what to do if an error occurs?
+            let nserror = error as NSError
+            print("Unresolved error \(nserror), \(nserror.userInfo)")
+            abort()
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

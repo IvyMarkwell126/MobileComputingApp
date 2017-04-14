@@ -51,20 +51,30 @@ class WelcomeView: UIViewController {
             }
         }
     }
-
     
+    func deleteAllUsers(){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        do{
+            try persistentContainer.viewContext.execute(deleteRequest)
+        }
+        catch let error as NSError{
+            print(error)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Uncomment this code and run to delete every user from the core data
+        //deleteAllUsers()
+        
         loginCheck()
-        //self.LoginAction.layer.cornerRadius = 10;
-        //self.RegisterAction.layer.cornerRadius = 10;
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
 
