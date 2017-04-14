@@ -16,6 +16,7 @@ class WelcomeView: UIViewController {
 
     var users = [NSManagedObject]()
     
+    
     func loginCheck(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -39,12 +40,13 @@ class WelcomeView: UIViewController {
         } else {
             print("Could not fetch")
         }
-        
+        print(users.count)
         for elt in users {
+            print(elt.value(forKey: "username")!)
             let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
             if isLoggedIn {
                 print("\(elt.value(forKey: "username")) is logged in")
-                performSegue(withIdentifier: "loginSegue", sender: nil)
+                performSegue(withIdentifier: "welcome2main", sender: nil)
                 break
             }
         }
@@ -53,7 +55,7 @@ class WelcomeView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         loginCheck()
         //self.LoginAction.layer.cornerRadius = 10;
         //self.RegisterAction.layer.cornerRadius = 10;

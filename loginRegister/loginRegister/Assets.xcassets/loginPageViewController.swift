@@ -23,14 +23,15 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.loadData()
         
-        for elt in users {
+        /*for elt in users {
             let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
             if isLoggedIn {
                 print("\(elt.value(forKey: "username")) is logged in")
                 performSegue(withIdentifier: "login2main", sender: nil)
                 break
             }
-        }
+        }*/
+        
         // Do any additional setup after loading the view.
         //self.LoginAction.layer.cornerRadius = 10;
         
