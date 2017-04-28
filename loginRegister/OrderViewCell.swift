@@ -8,8 +8,18 @@
 
 import UIKit
 
-class OrderViewCell: UITableViewCell {
+protocol DetailBtnDelegate {
+    func showAlert(cell:OrderViewCell)
+}
 
+class OrderViewCell: UITableViewCell {
+    var btnDelegate:DetailBtnDelegate?
+    
+    var rowIndex:Int?
+
+    @IBOutlet weak var itemList: UILabel!
+    @IBOutlet weak var itemPrice: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +30,9 @@ class OrderViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    @IBAction func reOrderBtn(_ sender: Any) {
+        if let delegate = btnDelegate{
+            delegate.showAlert(cell: self)
+        }
+    }
 }

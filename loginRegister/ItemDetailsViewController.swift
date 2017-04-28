@@ -1,26 +1,30 @@
 //
-//  ConfirmationViewController.swift
+//  ItemDetailsViewController.swift
 //  loginRegister
 //
-//  Created by Angel Martinez on 3/24/17.
+//  Created by Angel Martinez on 4/16/17.
 //  Copyright © 2017 Abel Morales. All rights reserved.
 //
 
 import UIKit
 
-class ConfirmationViewController: UIViewController {
+class ItemDetailsViewController: UIViewController {
     
-    @IBOutlet weak var orderTotal: UILabel!
+    @IBOutlet weak var viewItemTitle: UILabel!
+    @IBOutlet weak var viewItemPrice: UILabel!
+    @IBOutlet weak var viewItemTime: UILabel!
     
-    @IBOutlet weak var orderTime: UILabel!
+    var _viewItemTitle:String?
+    var _viewItemPrice:Float?
+    var _viewItemTime:Int?
     
-    var _orderTotal:String = ""
-    var _orderTime:String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        orderTime.text = "\(_orderTime) minutes"
-        orderTotal.text = "$\(_orderTotal)"
+        
+        viewItemPrice.text = "$\(_viewItemPrice!)"
+        viewItemTime.text = "\(_viewItemTime!) minutes"
+        viewItemTitle.text = _viewItemTitle
 
         // Do any additional setup after loading the view.
     }

@@ -62,6 +62,8 @@ class WelcomeView: UIViewController {
         catch let error as NSError{
             print(error)
         }
+        
+        print("Deteted All Users")
     }
 
     override func viewDidLoad() {

@@ -8,10 +8,20 @@
 
 import UIKit
 
+protocol RemoveBtnDelegate {
+    func removeItem(removeIdx:Int)
+}
+
 class ItemRemoveTableViewCell: UITableViewCell {
     
+    var btnDelegate:RemoveBtnDelegate?
+    var index:Int?
     
     @IBAction func itemRemoveBtn(_ sender: Any) {
+        print(index)
+        if let delegate = btnDelegate{
+            delegate.removeItem(removeIdx: index!)
+        }
     }
 
     override func awakeFromNib() {

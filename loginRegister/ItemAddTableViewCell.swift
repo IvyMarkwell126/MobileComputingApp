@@ -9,12 +9,18 @@
 import UIKit
 import CoreData
 
+protocol ItemDetailDelegate {
+    func showAlert(cell:ItemAddTableViewCell)
+}
 
 // View cell for adding items in the menu table  
 class ItemAddTableViewCell: UITableViewCell {
     
+    var btnDelegate:ItemDetailDelegate?
+    
     var items = [NSManagedObject]()
     var _menuItem:MenuItem?
+    var rowIndex:Int?
 
     // Storing cart items in core data
     func addItem(_itemTitle: String, _itemPrice:Float, _itemTime:Int)
@@ -44,11 +50,18 @@ class ItemAddTableViewCell: UITableViewCell {
 
     @IBAction func itemAddBtn(_ sender: Any)
     {
-        print(_menuItem?.title)
-        print(_menuItem?.price)
+        //print(_menuItem?.title)
+        //print(_menuItem?.price)
         
         // Will add the selected item to the session cart
         addItem(_itemTitle: (_menuItem?.title)!, _itemPrice: (_menuItem?.price)!, _itemTime: (_menuItem?.time)!)
+    }
+    @IBAction func itemDetailsBtn(_ sender: Any) {
+        print(self.rowIndex)
+        print("************button pressed*************")
+        if let delegate = btnDelegate{
+            delegate.showAlert(cell: self)
+        }
     }
     
     

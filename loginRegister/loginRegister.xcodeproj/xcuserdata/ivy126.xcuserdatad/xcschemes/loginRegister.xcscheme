@@ -17,7 +17,7 @@
                BlueprintIdentifier = "750EC8171E82FD52007CCA5C"
                BuildableName = "loginRegister.app"
                BlueprintName = "loginRegister"
-               ReferencedContainer = "container:loginRegister.xcodeproj">
+               ReferencedContainer = "container:../../../../../../u/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
                BlueprintIdentifier = "750EC82E1E82FD53007CCA5C"
                BuildableName = "loginRegisterTests.xctest"
                BlueprintName = "loginRegisterTests"
-               ReferencedContainer = "container:loginRegister.xcodeproj">
+               ReferencedContainer = "container:../../../../../../u/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "750EC8391E82FD53007CCA5C"
                BuildableName = "loginRegisterUITests.xctest"
                BlueprintName = "loginRegisterUITests"
-               ReferencedContainer = "container:loginRegister.xcodeproj">
+               ReferencedContainer = "container:../../../../../../u/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,7 +55,7 @@
             BlueprintIdentifier = "750EC8171E82FD52007CCA5C"
             BuildableName = "loginRegister.app"
             BlueprintName = "loginRegister"
-            ReferencedContainer = "container:loginRegister.xcodeproj">
+            ReferencedContainer = "container:../../../../../../u/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -78,7 +78,7 @@
             BlueprintIdentifier = "750EC8171E82FD52007CCA5C"
             BuildableName = "loginRegister.app"
             BlueprintName = "loginRegister"
-            ReferencedContainer = "container:loginRegister.xcodeproj">
+            ReferencedContainer = "container:../../../../../../u/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -97,7 +97,7 @@
             BlueprintIdentifier = "750EC8171E82FD52007CCA5C"
             BuildableName = "loginRegister.app"
             BlueprintName = "loginRegister"
-            ReferencedContainer = "container:loginRegister.xcodeproj">
+            ReferencedContainer = "container:../../../../../../u/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

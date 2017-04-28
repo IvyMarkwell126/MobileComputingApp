@@ -9,14 +9,21 @@
 import UIKit
 import CoreData
 
-class PreviewTableViewController: UITableViewController {
+class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
+    
+    var idx = 0
     
     var users = [NSManagedObject]()
     var cart = [NSManagedObject]()
     
+    var hoursAlert:UIAlertController? = nil
+    
     var totalPrice:Float = 0
     var totalTime:Int = 0
     var completeOrder:String = ""
+    var order:String = ""
+    var price:String = ""
+    var time:String = ""
     
     @IBOutlet var previewTable: UITableView!
     
@@ -33,15 +40,36 @@ class PreviewTableViewController: UITableViewController {
         
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         
-        do{
-            try persistentContainer.viewContext.execute(deleteRequest)
+        // Hours alert controller - if we are closed!
+        let date = Date()
+        let calendar = Calendar.current
+        let hour = calendar.component(.hour, from: date)
+        //let hour = 15
+        let minute = calendar.component(.minute, from: date)
+        print("check time")
+        print(hour)
+        
+        if(hour < 10 || hour > 18){
+            hoursAlert = UIAlertController(title: "Sorry!", message: "We are closed!", preferredStyle: UIAlertControllerStyle.alert)
+            let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
+                //print("Ok Button Pressed 1");
+            }
+            hoursAlert!.addAction(OKAction)
+            present(self.hoursAlert!, animated: true, completion:nil)
         }
         
-        catch let error as NSError{
-            print(error)
+        else{
+            do{
+                try persistentContainer.viewContext.execute(deleteRequest)
+            }
+                
+            catch let error as NSError{
+                print(error)
+            }
+            registerOrder(completeOrder:completeOrder)
+            performSegue(withIdentifier: "ConfirmOrderSegue", sender: nil)
         }
         
-        registerOrder(completeOrder:completeOrder)
 
     }
     
@@ -62,20 +90,40 @@ class PreviewTableViewController: UITableViewController {
             NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        print("here")
         if let results = fetchedUser {
             users = results
-            print("\(users.count)")
         } else {
             print("Could not fetch")
         }
         
+        
         for elt in users {
             let testName = (elt.value(forKey: "loggedIn") as? Bool)!
             if testName {
-                print("\(elt.value(forKey: "username")) is logged in")
+                if (elt.value(forKey: "pastOrder") == nil) {
+                    order = ""
+                }
+                else {
+                    order = elt.value(forKey: "pastOrder") as! String
+                    price = elt.value(forKey: "pastPrice") as! String
+                    time = elt.value(forKey: "pastTimes") as! String
+                }
+                order += completeOrder
+                price += String(totalPrice) + " "
+                time += String(totalTime) + " "
+                
+                elt.setValue(order, forKey: "pastOrder")
+                elt.setValue(price, forKey: "pastPrice")
+                elt.setValue(time, forKey: "pastTimes")
+                do {
+                    try managedContext.save()
+                } catch {
+                    // what to do if an error occurs?
+                    let nserror = error as NSError
+                    print("Unresolved error \(nserror), \(nserror.userInfo)")
+                    abort()
+                }
             }
-            print("\(testName)")
         }
     }
 
@@ -104,6 +152,7 @@ class PreviewTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 60.0
         loadData()
         for elt in cart{
             var testName = (elt.value(forKey: "title") as? String)!
@@ -113,13 +162,13 @@ class PreviewTableViewController: UITableViewController {
             
             totalPrice += testPrice
             totalTime += testTime
-            completeOrder += testName
-
+            completeOrder += testName + "-"
             
         }
+        completeOrder = String(completeOrder.characters.dropLast())
+        completeOrder += ";"
 
         previewTotal.text = String(totalPrice)
-        print(totalTime)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -148,71 +197,38 @@ class PreviewTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //reuse ids: itemPreviewTableViewCell, itemRemoveTableViewCell
-
-        // Configure the cell...
+        
         if(indexPath.row % 2 == 0)
         {
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemPreviewTableViewCell", for:indexPath) as! ItemPreviewTableViewCell
-            
-            //print(cart[indexPath.section])
-            
             cell.titlePreview.text = (cart[indexPath.section].value(forKey: "title") as? String)!
-            //cell.itemPricePreview.text = "test"
             cell.itemPricePreview.text = String((cart[indexPath.section].value(forKey: "price") as? Float)!)
-            
             return cell
         }
         
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemRemoveTableViewCell") as! ItemRemoveTableViewCell
-            
-            //cell.titlePreview.text = "Foo"
-            //cell.itemPricePreview.text = cart[indexPath.section]
-            
+            cell.index = idx
+            idx += 1
+            if(cell.btnDelegate == nil){
+                cell.btnDelegate = self
+            }
             return cell
         }
 
     }
     
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func removeItem(removeIdx: Int) {
+        print(removeIdx)
+        var toBeRemoved = cart[removeIdx]
+        cart.remove(at: removeIdx)
+        idx = 0
+        totalPrice -= (toBeRemoved.value(forKey: "price") as? Float)!
+        previewTotal.text = String(totalPrice)
+        totalTime -= (toBeRemoved.value(forKey: "time") as? Int)!
+        self.tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    
-    // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -224,10 +240,8 @@ class PreviewTableViewController: UITableViewController {
             // total time and dollar amount
             
             let viewController = segue.destination as! ConfirmationViewController
-            viewController._orderTotal = totalPrice
-            viewController._orderTime = totalTime
+            viewController._orderTotal = String(totalPrice)
+            viewController._orderTime = String(totalTime)
         }
     }
-    
-
 }

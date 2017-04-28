@@ -2,6 +2,84 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:loginRegister.xcodeproj">
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/AppDelegate.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/Assets.xcassets">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/Base.lproj">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/Info.plist">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/ItemRemoveTableViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/loginRegister.xcdatamodeld">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/MenuItem.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/PreviewTableViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/registerPageViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/TootieMenuTableViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister/WelcomeView.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/Appearance.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/ConfirmationViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/ItemAddTableViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/ItemDetailsTableViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/ItemPreviewTableViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/ItemRemoveTableViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister-Table.zip">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegister-Time.zip">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegisterTests">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/loginRegisterUITests">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/Main.storyboard">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/OrderViewCell.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/PastOrderTableViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "group:../../../../../../../Users/ivy126/Desktop/CS329E App/MobileComputingApp/loginRegister/SettingsViewController.swift">
+   </FileRef>
+   <FileRef
+      location = "self:">
    </FileRef>
 </Workspace>
