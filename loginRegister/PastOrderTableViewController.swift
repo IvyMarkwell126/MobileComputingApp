@@ -108,9 +108,6 @@ class PastOrderTableViewController: UITableViewController, DetailBtnDelegate {
         if(cell.btnDelegate == nil){
             cell.btnDelegate = self
         }
-        print("############################")
-        print(idx)
-        print("############################")
         
         if (orders.count == 0) {
             cell.itemList.text = "You don't have any orders yet!"

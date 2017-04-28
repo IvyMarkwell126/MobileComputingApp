@@ -46,12 +46,12 @@ extension UIViewController{
 class Appearance {
     class func setInitialAppTheme() {
         UIButton.appearance().cornerRadius = 10;
-        UIButton.appearance().backgroundColor = UIColor.init(red: 171/255.0, green: 250/255.0, blue: 242/255.0, alpha: 1.0)
-        UILabel.appearance().backgroundColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
+        //UIButton.appearance().backgroundColor = UIColor.init(red: 171/255.0, green: 250/255.0, blue: 242/255.0, alpha: 1.0)
+        //UILabel.appearance().backgroundColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
         
-        UIView.appearance().backgroundColor = UIColor.init(red: 255/255.0, green: 255/255.0, blue: 0/255.0, alpha: 1.0)
+        //UIView.appearance().backgroundColor = UIColor.init(red: 255/255.0, green: 255/255.0, blue: 0/255.0, alpha: 1.0)
         
-        UIButton.appearance().titleLabelFont = UIFont(name: "Noteworthy", size: 17)
+        //UIButton.appearance().titleLabelFont = UIFont(name: "Noteworthy", size: 17)
         //UILabel.appearance().defaultFont = UIFont(name: "Noteworthy", size: 17)
     }
 }
