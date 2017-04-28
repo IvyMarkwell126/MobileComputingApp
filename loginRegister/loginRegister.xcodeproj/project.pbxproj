@@ -16,6 +16,7 @@
 		75121B071EA0380B00DD4911 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75121B051EA0380B00DD4911 /* LaunchScreen.storyboard */; };
 		759A34571E84B05700578F37 /* TootieMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759A34561E84B05700578F37 /* TootieMenuTableViewController.swift */; };
 		75E6EFB51EA1314700C8275D /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E6EFB41EA1314700C8275D /* Appearance.swift */; };
+		75F636FB1EB3C639002000DC /* MyCustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75F636FA1EB3C639002000DC /* MyCustomView.swift */; };
 		7D1FDAE71E85347D007936A3 /* ItemDetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */; };
 		7D1FDAE91E8534A9007936A3 /* ItemAddTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */; };
 		7D1FDAEE1E853505007936A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1FDAED1E853505007936A3 /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		75121B061EA0380B00DD4911 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = loginRegister/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		759A34561E84B05700578F37 /* TootieMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TootieMenuTableViewController.swift; path = loginRegister/TootieMenuTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		75E6EFB41EA1314700C8275D /* Appearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		75F636FA1EB3C639002000DC /* MyCustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCustomView.swift; sourceTree = "<group>"; };
 		7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemAddTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		7D1FDAED1E853505007936A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = loginRegister/AppDelegate.swift; sourceTree = SOURCE_ROOT; };
@@ -131,6 +133,7 @@
 			children = (
 				B0A949E01EA1784600DEF15F /* Main.storyboard */,
 				7D1FDAED1E853505007936A3 /* AppDelegate.swift */,
+				75F636FA1EB3C639002000DC /* MyCustomView.swift */,
 				7D1FDAF21E853583007936A3 /* MenuItem.swift */,
 				75E6EFB41EA1314700C8275D /* Appearance.swift */,
 				75121B051EA0380B00DD4911 /* LaunchScreen.storyboard */,
@@ -350,6 +353,7 @@
 				7DF7802C1E9DAA30005C308C /* PastOrderTableViewController.swift in Sources */,
 				750EC84F1E830E14007CCA5C /* loginPageViewController.swift in Sources */,
 				7DDF774C1E8592330063BE95 /* ConfirmationViewController.swift in Sources */,
+				75F636FB1EB3C639002000DC /* MyCustomView.swift in Sources */,
 				750EC84D1E83003B007CCA5C /* registerPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
