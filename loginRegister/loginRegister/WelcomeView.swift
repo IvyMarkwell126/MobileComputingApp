@@ -11,6 +11,7 @@ import CoreData
 
 class WelcomeView: UIViewController {
 
+    @IBOutlet weak var picture: UIImageView!
     @IBOutlet var LoginAction: UIButton!
     @IBOutlet var RegisterAction: UIButton!
 
@@ -69,6 +70,9 @@ class WelcomeView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        picture.image = #imageLiteral(resourceName: "catchef.jpg")
+        self.picture.layer.cornerRadius = picture.frame.height/2;
+        self.picture.clipsToBounds = true;
         //Uncomment this code and run to delete every user from the core data
         //deleteAllUsers()
         

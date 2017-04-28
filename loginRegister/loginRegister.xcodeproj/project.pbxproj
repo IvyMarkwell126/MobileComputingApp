@@ -31,6 +31,7 @@
 		7DF7802C1E9DAA30005C308C /* PastOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */; };
 		7DF7802E1E9DAA5E005C308C /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */; };
 		B0A949E11EA1784600DEF15F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A949E01EA1784600DEF15F /* Main.storyboard */; };
+		B0F78FD91EB3CA6C00EAD646 /* catchef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0F78FD81EB3CA6C00EAD646 /* catchef.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrderTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = SOURCE_ROOT; };
 		B0A949E01EA1784600DEF15F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B0F78FD81EB3CA6C00EAD646 /* catchef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = catchef.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 				750EC84C1E83003B007CCA5C /* registerPageViewController.swift */,
 				7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */,
 				75121B021EA0377E00DD4911 /* loginRegister.xcdatamodeld */,
+				B0F78FD81EB3CA6C00EAD646 /* catchef.jpg */,
 				7DF7802A1E9DA86B005C308C /* Order History Controllers */,
 				7DDF77461E8577FE0063BE95 /* Preview View Controllers */,
 				75D6B3E21E8487750041A88F /* Menu View Controllers */,
@@ -309,6 +312,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F78FD91EB3CA6C00EAD646 /* catchef.jpg in Resources */,
 				B0A949E11EA1784600DEF15F /* Main.storyboard in Resources */,
 				75121B071EA0380B00DD4911 /* LaunchScreen.storyboard in Resources */,
 				7DB2F9B91E853BAB008CE06B /* Assets.xcassets in Resources */,

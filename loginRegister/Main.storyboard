@@ -147,7 +147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KE4-ST-E81">
-                                <rect key="frame" x="16" y="57" width="343" height="48"/>
+                                <rect key="frame" x="16" y="101" width="343" height="48"/>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -218,7 +218,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logged in as:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2p7-VS-8Gd">
-                                <rect key="frame" x="16" y="36" width="103" height="21"/>
+                                <rect key="frame" x="16" y="80" width="103" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="GqE-rL-boH"/>
                                     <constraint firstAttribute="width" constant="103" id="TBN-yR-gc9"/>
@@ -370,7 +370,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eyi-3Z-rwc">
-                                <rect key="frame" x="284" y="28" width="75" height="30"/>
+                                <rect key="frame" x="284" y="72" width="75" height="30"/>
                                 <color key="backgroundColor" red="0.61960784310000006" green="0.98431372549999996" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Fiq-Uf-u8Q"/>
@@ -459,12 +459,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lHF-qH-N9S">
+                                <rect key="frame" x="115" y="193" width="147" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="1sD-FT-7Nj"/>
+                                    <constraint firstAttribute="width" constant="147" id="As3-UM-3Ia"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.07638882116765755" green="0.70752162907996619" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Q3c-Fg-xjU" firstAttribute="centerX" secondItem="KJN-QR-ohY" secondAttribute="centerX" constant="1" id="2KN-Hx-8vm"/>
+                            <constraint firstItem="lHF-qH-N9S" firstAttribute="centerX" secondItem="KJN-QR-ohY" secondAttribute="centerX" constant="1" id="5S2-mf-qwd"/>
                             <constraint firstItem="3da-U1-2Sm" firstAttribute="centerX" secondItem="KJN-QR-ohY" secondAttribute="centerX" id="6vd-of-IGe"/>
                             <constraint firstItem="GJg-Em-hTp" firstAttribute="centerY" secondItem="KJN-QR-ohY" secondAttribute="centerY" constant="132.5" id="HKX-dE-sY3"/>
+                            <constraint firstItem="lHF-qH-N9S" firstAttribute="top" secondItem="3da-U1-2Sm" secondAttribute="bottom" constant="8" id="ONs-6n-gYz"/>
                             <constraint firstItem="GJg-Em-hTp" firstAttribute="centerX" secondItem="KJN-QR-ohY" secondAttribute="centerX" constant="1" id="Rlc-18-gjs"/>
                             <constraint firstItem="Q3c-Fg-xjU" firstAttribute="centerY" secondItem="KJN-QR-ohY" secondAttribute="centerY" constant="56.5" id="UbZ-lu-gMf"/>
                             <constraint firstItem="3da-U1-2Sm" firstAttribute="top" secondItem="ENg-9v-a1B" secondAttribute="bottom" constant="34" id="djZ-Hy-ZA6"/>
@@ -476,12 +485,13 @@
                     <connections>
                         <outlet property="LoginAction" destination="Q3c-Fg-xjU" id="7fd-sw-jiZ"/>
                         <outlet property="RegisterAction" destination="GJg-Em-hTp" id="guc-LW-Yi9"/>
+                        <outlet property="picture" destination="lHF-qH-N9S" id="Y7w-Tv-Q57"/>
                         <segue destination="C5B-CX-UgO" kind="presentation" identifier="welcome2main" id="qLL-Cx-yl2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GM4-Rl-Tyv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="911" y="139"/>
+            <point key="canvasLocation" x="909.60000000000002" y="138.98050974512745"/>
         </scene>
         <!--Login Page View Controller-->
         <scene sceneID="6Na-cI-I8c">
@@ -762,7 +772,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="&lt;title&gt;" lineBreakMode="tailTruncation" numberOfLines="20" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="fxh-vs-cBW">
-                                            <rect key="frame" x="10" y="19" width="352" height="107"/>
+                                            <rect key="frame" x="10" y="19" width="352" height="106"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
                                             <nil key="textColor"/>
