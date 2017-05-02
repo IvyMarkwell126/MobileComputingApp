@@ -30,25 +30,25 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     
     private func createMenuItems()
     {
-        let itClub = MenuItem.init(_title:"Italian Club", _price:7.00, _time:10, _isVeg:false, _isGF:false)
-        let blt = MenuItem.init(_title:"BLT", _price:5.95, _time:7, _isVeg:false, _isGF:false)
-        let rueben = MenuItem.init(_title:"Rueben", _price:5.95, _time:10, _isVeg:false, _isGF:false)
-        let meatball = MenuItem.init(_title:"Meatball", _price:7.00, _time:10, _isVeg:false, _isGF:false)
-        let veggie = MenuItem.init(_title:"Veggie Sandwich", _price:5.95, _time:7, _isVeg:false, _isGF:false)
+        let itClub = MenuItem.init(_title:"Italian Club", _price:7.00, _time:10, _isVeg:false, _isGF:false, _desc: "Salami, Ham, Mortadella, Capicola, Provolone, and Veggies on soft Italian bread")
+        let blt = MenuItem.init(_title:"BLT", _price:5.95, _time:7, _isVeg:false, _isGF:false, _desc: "Classic Bacon, Lettuce, and Tomato on white bread")
+        let rueben = MenuItem.init(_title:"Rueben", _price:5.95, _time:10, _isVeg:false, _isGF:false, _desc: "Corned Beef, Russian dressing, SauerKraut, and Swiss cheese on Jewish Rye bread")
+        let meatball = MenuItem.init(_title:"Meatball", _price:7.00, _time:10, _isVeg:false, _isGF:false, _desc: "Meatballs on bread with cheese, what more do you want?")
+        let veggie = MenuItem.init(_title:"Veggie Sandwich", _price:5.95, _time:7, _isVeg:true, _isGF:false, _desc: "Thinly sliced eggplant, zucchini, tomatoes, avocado, and pesto on French bread")
         
-        let vegSandwich = MenuItem.init(_title:"Vegan Sandwich", _price:5.95, _time:7, _isVeg:true, _isGF:false)
+        let vegSandwich = MenuItem.init(_title:"Vegan Sandwich", _price:5.95, _time:7, _isVeg:true, _isGF:false, _desc: "An assortment of vegan friendly meat and cheese substitutes on a hoagie roll")
         
-        let gfSandich = MenuItem.init(_title: "Gluten Free Sandwich", _price: 4.95, _time: 6, _isVeg:false, _isGF:true)
+        let gfSandich = MenuItem.init(_title: "Gluten Free Sandwich", _price: 4.95, _time: 6, _isVeg:false, _isGF:true, _desc: "Regular menu item with the bread replaced with Gluten free bread or letuce wrap")
         
-        let french = MenuItem.init(_title:"French Fries", _price:1.95, _time:3, _isVeg:true, _isGF:true)
-        let onion = MenuItem.init(_title:"Onion Rings", _price: 2.95, _time: 4, _isVeg:false, _isGF:false)
-        let tator = MenuItem.init(_title: "Tator Tots", _price: 1.95, _time:2, _isVeg:true, _isGF:true)
+        let french = MenuItem.init(_title:"French Fries", _price:1.95, _time:3, _isVeg:true, _isGF:true, _desc: "Deep fried french fries made to order")
+        let onion = MenuItem.init(_title:"Onion Rings", _price: 2.95, _time: 4, _isVeg:false, _isGF:false, _desc: "Made to order with our secret batter recipe")
+        let tator = MenuItem.init(_title: "Tator Tots", _price: 1.95, _time:2, _isVeg:true, _isGF:true, _desc: "Freshly grated tater tots made to order")
         
-        let drink = MenuItem.init(_title:"Dr. Pepper", _price:1.50, _time:1, _isVeg:true, _isGF:true)
-        let drink2 = MenuItem.init(_title: "Sprite", _price: 1.50, _time: 1, _isVeg:true, _isGF:true)
-        let drink3 = MenuItem.init(_title: "Coke", _price: 1.50, _time: 1, _isVeg:true, _isGF:true)
+        let drink = MenuItem.init(_title:"Dr. Pepper", _price:1.50, _time:1, _isVeg:true, _isGF:true, _desc: "King of Beverages")
+        let drink2 = MenuItem.init(_title: "Sprite", _price: 1.50, _time: 1, _isVeg:true, _isGF:true, _desc: "Obey Your Thirst")
+        let drink3 = MenuItem.init(_title: "Coke", _price: 1.50, _time: 1, _isVeg:true, _isGF:true, _desc: "Open Happiness")
         
-        let desert = MenuItem.init(_title:"ChocolateChip Cookie", _price:0.50, _time:1, _isVeg:false, _isGF:false)
+        let desert = MenuItem.init(_title:"ChocolateChip Cookie", _price:0.50, _time:1, _isVeg:false, _isGF:false, _desc: "Served warm, soft, and delicious with big chunks of dark chocolate")
         
         menuItems.append(itClub)
         menuItems.append(blt)
@@ -105,6 +105,8 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         createMenuItems()
         loginCheck()
         self.tableView.rowHeight = 60.0
+        
+        idx = 0
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -166,12 +168,12 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return currentMenu.count
+        return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return currentMenu.count*2
     }
     
     
@@ -181,8 +183,8 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         {
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemDetailsTableViewCell", for:indexPath) as! ItemDetailsTableViewCell
             
-            cell.itemPrice.text = String(currentMenu[indexPath.section].price)
-            cell.itemTitle.text = currentMenu[indexPath.section].title
+            cell.itemPrice.text = String(currentMenu[indexPath.row/2].price)
+            cell.itemTitle.text = currentMenu[indexPath.row/2].title
             
             return cell
         }
@@ -197,9 +199,13 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
                 cell.btnDelegate = self
             }
             
-            idx += 1
-            cell.rowIndex = idx - 1
             
+            cell.rowIndex = idx
+            print("&&&\(idx)&&&")
+            idx += 1
+            if(idx >= menuItems.count){
+                idx = 0
+            }
             return cell
         }
         
@@ -234,9 +240,8 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
             // Pass the items in the cart to the ConfirmationViewController to show
             // total time and dollar amount
             let viewController = segue.destination as! ItemDetailsViewController
-            viewController._viewItemTitle = menuItems[selectedIndex].title
-            viewController._viewItemTime = menuItems[selectedIndex].time
-            viewController._viewItemPrice = menuItems[selectedIndex].price
+            print(selectedIndex)
+            viewController.item = menuItems[selectedIndex]
         }
 
      }

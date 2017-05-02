@@ -9,10 +9,18 @@
 import UIKit
 import CoreData
 
+protocol ChangeColorDelegate {
+    func changeColor(idx:Int)
+}
+
 class SettingsViewController: UIViewController {
+    
+    var btnDelegate:ChangeColorDelegate?
+    var selectedIdx = 0
     
     @IBOutlet weak var veganSegCont: UISegmentedControl!
     @IBOutlet weak var gluteSegCont: UISegmentedControl!
+    @IBOutlet weak var colorSegCont: UISegmentedControl!
     
     var isVegan:Bool = false
     var isGlute:Bool = false
@@ -125,6 +133,23 @@ class SettingsViewController: UIViewController {
             let nserror = error as NSError
             print("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
+        }
+        
+        switch colorSegCont.selectedSegmentIndex {
+        case 0:
+            selectedIdx = 0
+        case 1:
+            selectedIdx = 1
+        case 2:
+            selectedIdx = 2
+        case 3:
+            selectedIdx = 3
+        default:
+            selectedIdx = 0
+        }
+        print(selectedIdx)
+        if let delegate = btnDelegate{
+            delegate.changeColor(idx: selectedIdx)
         }
     }
 

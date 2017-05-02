@@ -53,8 +53,8 @@ class WelcomeView: UIViewController {
         }
     }
     
-    func deleteAllUsers(){
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"User")
+    func deleteCoreData(entName:String){
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:entName)
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
         do{
@@ -74,7 +74,8 @@ class WelcomeView: UIViewController {
         self.picture.layer.cornerRadius = picture.frame.height/2;
         self.picture.clipsToBounds = true;
         //Uncomment this code and run to delete every user from the core data
-        //deleteAllUsers()
+        //deleteCoreData(entName: "User")
+        //deleteCoreData(entName: "Comment")
         
         loginCheck()
     }
