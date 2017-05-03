@@ -209,7 +209,9 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
         else
         {
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemRemoveTableViewCell") as! ItemRemoveTableViewCell
-            cell.index = idx
+            cell.itemName = cart[indexPath.section].value(forKey: "title") as? String
+            cell.itemTime = cart[indexPath.section].value(forKey: "time") as? Int
+            cell.itemPrice = cart[indexPath.section].value(forKey: "price") as? Float
             idx += 1
             if(cell.btnDelegate == nil){
                 cell.btnDelegate = self
@@ -219,7 +221,59 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
 
     }
     
-    func removeItem(removeIdx: Int) {
+    func removeItem(passedName: String, passedPrice: Float, passedTime: Int) {
+        var index = 0
+        
+        for elt in cart {
+            if elt.value(forKey: "title") as? String == passedName {
+                print(index, cart.count)
+                cart.remove(at: index)
+                totalTime -= (elt.value(forKey: "time") as? Int)!
+                totalPrice -= (elt.value(forKey: "price") as? Float)!
+                break
+            }
+            index += 1
+        }
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Item")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        let persistentContainer = (UIApplication.shared.delegate as! AppDelegate).persistentContainer
+        do{
+            try persistentContainer.viewContext.execute(deleteRequest)
+        }
+        catch let error as NSError{
+            print(error)
+        }
+        
+        for elt in cart{
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            let managedContext = appDelegate.persistentContainer.viewContext
+            
+            let entity =  NSEntityDescription.entity(forEntityName: "Item", in: managedContext)
+            let candidate = NSManagedObject(entity: entity!, insertInto: managedContext)
+            
+            // Storing data in core data
+            // be sure to add .setValue for any new attributes that need to be added
+            
+            candidate.setValue((elt.value(forKey: "title") as? String)!, forKey: "title")
+            candidate.setValue((elt.value(forKey: "price") as? Float)!, forKey: "price")
+            candidate.setValue((elt.value(forKey: "time") as? Int)!, forKey: "time")
+            
+            do {
+                try managedContext.save()
+            } catch {
+                // what to do if an error occurs?
+                let nserror = error as NSError
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
+                abort()
+            }
+
+        }
+        
+        print("Deteted whole cart")
+        
+        /*
+        print("lksdfj;lakdjs")
         print(removeIdx)
         var toBeRemoved = cart[removeIdx]
         cart.remove(at: removeIdx)
@@ -227,6 +281,8 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
         totalPrice -= (toBeRemoved.value(forKey: "price") as? Float)!
         previewTotal.text = String(totalPrice)
         totalTime -= (toBeRemoved.value(forKey: "time") as? Int)!
+                                    */
+        previewTotal.text = String(totalPrice)
         self.tableView.reloadData()
     }
 

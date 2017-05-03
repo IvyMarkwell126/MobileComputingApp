@@ -9,18 +9,20 @@
 import UIKit
 
 protocol RemoveBtnDelegate {
-    func removeItem(removeIdx:Int)
+    func removeItem(passedName:String, passedPrice:Float, passedTime:Int)
 }
 
 class ItemRemoveTableViewCell: UITableViewCell {
     
     var btnDelegate:RemoveBtnDelegate?
-    var index:Int?
+    var itemName:String?
+    var itemPrice:Float?
+    var itemTime:Int?
     
     @IBAction func itemRemoveBtn(_ sender: Any) {
         print(index)
         if let delegate = btnDelegate{
-            delegate.removeItem(removeIdx: index!)
+            delegate.removeItem(passedName: itemName!, passedPrice: itemPrice!, passedTime: itemTime!)
         }
     }
 

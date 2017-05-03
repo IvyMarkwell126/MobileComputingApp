@@ -12,7 +12,7 @@ import CoreData
 class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     
     var idx:Int = 0
-    var selectedIndex = 0
+    var selectedItem:MenuItem?
     
     private var users:[NSManagedObject] = []
     private var user:NSManagedObject?
@@ -168,12 +168,12 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return currentMenu.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return currentMenu.count*2
+        return 2
     }
     
     
@@ -183,8 +183,8 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         {
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemDetailsTableViewCell", for:indexPath) as! ItemDetailsTableViewCell
             
-            cell.itemPrice.text = String(currentMenu[indexPath.row/2].price)
-            cell.itemTitle.text = currentMenu[indexPath.row/2].title
+            cell.itemPrice.text = String(currentMenu[indexPath.section].price)
+            cell.itemTitle.text = currentMenu[indexPath.section].title
             
             return cell
         }
@@ -199,13 +199,14 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
                 cell.btnDelegate = self
             }
             
-            
+    /*
             cell.rowIndex = idx
             print("&&&\(idx)&&&")
             idx += 1
-            if(idx >= menuItems.count){
+            if(idx >= currentMenu.count){
                 idx = 0
             }
+    */
             return cell
         }
         
@@ -225,8 +226,8 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     }
     
     
-    func showAlert(cell: ItemAddTableViewCell) {
-        selectedIndex = cell.rowIndex!
+    func showDetail(cell: ItemAddTableViewCell) {
+        selectedItem = cell._menuItem!
         performSegue(withIdentifier: "menu2details", sender: nil)
     }
      
@@ -240,8 +241,8 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
             // Pass the items in the cart to the ConfirmationViewController to show
             // total time and dollar amount
             let viewController = segue.destination as! ItemDetailsViewController
-            print(selectedIndex)
-            viewController.item = menuItems[selectedIndex]
+            
+            viewController.item = selectedItem!
         }
 
      }

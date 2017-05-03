@@ -31,6 +31,7 @@
 		7DF7802C1E9DAA30005C308C /* PastOrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */; };
 		7DF7802E1E9DAA5E005C308C /* OrderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */; };
 		B0A949E11EA1784600DEF15F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0A949E01EA1784600DEF15F /* Main.storyboard */; };
+		B0F56F5D1EBA9ADB001CFA47 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F56F5C1EBA9ADB001CFA47 /* MainView.swift */; };
 		B0F78FD91EB3CA6C00EAD646 /* catchef.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0F78FD81EB3CA6C00EAD646 /* catchef.jpg */; };
 		B0F78FDE1EB3D73C00EAD646 /* CommentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F78FDD1EB3D73C00EAD646 /* CommentsTableViewController.swift */; };
 		B0F78FE01EB3D74B00EAD646 /* CommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F78FDF1EB3D74B00EAD646 /* CommentsTableViewCell.swift */; };
@@ -84,6 +85,7 @@
 		7DF7802B1E9DAA30005C308C /* PastOrderTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastOrderTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		7DF7802D1E9DAA5E005C308C /* OrderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderViewCell.swift; sourceTree = SOURCE_ROOT; };
 		B0A949E01EA1784600DEF15F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B0F56F5C1EBA9ADB001CFA47 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B0F78FD81EB3CA6C00EAD646 /* catchef.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = catchef.jpg; sourceTree = "<group>"; };
 		B0F78FDD1EB3D73C00EAD646 /* CommentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewController.swift; sourceTree = "<group>"; };
 		B0F78FDF1EB3D74B00EAD646 /* CommentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -146,11 +148,13 @@
 				7DB2F9B81E853BAB008CE06B /* Assets.xcassets */,
 				750EC82A1E82FD53007CCA5C /* Info.plist */,
 				750EC8501E8345DF007CCA5C /* WelcomeView.swift */,
+				B0F56F5C1EBA9ADB001CFA47 /* MainView.swift */,
 				750EC84E1E830E14007CCA5C /* loginPageViewController.swift */,
 				750EC84C1E83003B007CCA5C /* registerPageViewController.swift */,
 				7DAC18B21E9EDAD300ABFAD5 /* SettingsViewController.swift */,
 				75121B021EA0377E00DD4911 /* loginRegister.xcdatamodeld */,
 				B0F78FD81EB3CA6C00EAD646 /* catchef.jpg */,
+				B0F56F571EBA756E001CFA47 /* Item Details Controllers */,
 				B0F78FDA1EB3D6BA00EAD646 /* Comments Controller */,
 				7DF7802A1E9DA86B005C308C /* Order History Controllers */,
 				7DDF77461E8577FE0063BE95 /* Preview View Controllers */,
@@ -183,7 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				759A34561E84B05700578F37 /* TootieMenuTableViewController.swift */,
-				7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */,
 				7D1FDAE81E8534A9007936A3 /* ItemAddTableViewCell.swift */,
 				7DDF774B1E8592330063BE95 /* ConfirmationViewController.swift */,
 			);
@@ -209,10 +212,18 @@
 			name = "Order History Controllers";
 			sourceTree = "<group>";
 		};
+		B0F56F571EBA756E001CFA47 /* Item Details Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D1FDAE61E85347D007936A3 /* ItemDetailsTableViewCell.swift */,
+				7DE1B5D91EA40D3D00FF94E8 /* ItemDetailsViewController.swift */,
+			);
+			name = "Item Details Controllers";
+			sourceTree = "<group>";
+		};
 		B0F78FDA1EB3D6BA00EAD646 /* Comments Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7DE1B5D91EA40D3D00FF94E8 /* ItemDetailsViewController.swift */,
 				B0F78FDD1EB3D73C00EAD646 /* CommentsTableViewController.swift */,
 				B0F78FDF1EB3D74B00EAD646 /* CommentsTableViewCell.swift */,
 			);
@@ -361,6 +372,7 @@
 				B0F78FE01EB3D74B00EAD646 /* CommentsTableViewCell.swift in Sources */,
 				7DDF77481E857CEF0063BE95 /* ItemPreviewTableViewCell.swift in Sources */,
 				7D1FDAEE1E853505007936A3 /* AppDelegate.swift in Sources */,
+				B0F56F5D1EBA9ADB001CFA47 /* MainView.swift in Sources */,
 				7DDF774A1E8581B10063BE95 /* ItemRemoveTableViewCell.swift in Sources */,
 				7D1FDAE91E8534A9007936A3 /* ItemAddTableViewCell.swift in Sources */,
 				7DF7802E1E9DAA5E005C308C /* OrderViewCell.swift in Sources */,

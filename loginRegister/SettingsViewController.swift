@@ -134,7 +134,7 @@ class SettingsViewController: UIViewController {
             print("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
-        
+        /*
         switch colorSegCont.selectedSegmentIndex {
         case 0:
             selectedIdx = 0
@@ -148,6 +148,7 @@ class SettingsViewController: UIViewController {
             selectedIdx = 0
         }
         print(selectedIdx)
+        */
         if let delegate = btnDelegate{
             delegate.changeColor(idx: selectedIdx)
         }
