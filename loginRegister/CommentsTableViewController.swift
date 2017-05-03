@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CommentsTableViewController: UITableViewController {
+class CommentsTableViewController: UITableViewController, UITextFieldDelegate {
     
     var data = [NSManagedObject]()
     var itemName:String?
@@ -21,6 +21,7 @@ class CommentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        commentFld.delegate = self
         loadData(entName: "Comment")
         for elt in data {
             if (elt.value(forKey: "item") as? String)! == itemName {
@@ -143,6 +144,19 @@ class CommentsTableViewController: UITableViewController {
             print("Unresolved error \(nserror), \(nserror.userInfo)")
             abort()
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 
 }

@@ -364,13 +364,17 @@
                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2T-Ip-LTG">
                                     <rect key="frame" x="268" y="38" width="99" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <state key="normal" title="Add Comment"/>
+                                    <color key="backgroundColor" red="0.66603225469589233" green="0.96760505437850952" blue="0.93184000253677368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                    <state key="normal" title="Add Comment">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                     <connections>
                                         <action selector="addBtn:" destination="pgz-RW-2M2" eventType="touchUpInside" id="GMB-5W-Vwj"/>
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="backgroundColor" red="0.026247864589095116" green="0.7089652419090271" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CommentsTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentsTableViewCell" rowHeight="132" id="R31-ip-mS0" customClass="CommentsTableViewCell" customModule="loginRegister">
@@ -1174,7 +1178,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qLL-Cx-yl2"/>
+        <segue reference="rcr-ij-TDP"/>
         <segue reference="jow-e8-czL"/>
     </inferredMetricsTieBreakers>
 </document>

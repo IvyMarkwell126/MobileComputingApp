@@ -270,18 +270,10 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
 
         }
         
-        print("Deteted whole cart")
+        if(totalPrice < 0.01){
+            totalPrice = 0.0
+        }
         
-        /*
-        print("lksdfj;lakdjs")
-        print(removeIdx)
-        var toBeRemoved = cart[removeIdx]
-        cart.remove(at: removeIdx)
-        idx = 0
-        totalPrice -= (toBeRemoved.value(forKey: "price") as? Float)!
-        previewTotal.text = String(totalPrice)
-        totalTime -= (toBeRemoved.value(forKey: "time") as? Int)!
-                                    */
         previewTotal.text = String(totalPrice)
         self.tableView.reloadData()
     }
