@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
+class TootieMenuTableViewController: UITableViewController, UITextFieldDelegate, ItemDetailDelegate {
     
     var idx:Int = 0
     var selectedItem:MenuItem?
@@ -25,6 +25,9 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     
     @IBOutlet var menuTableView: UITableView!
     private var item:MenuItem?
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredMenuItems:[MenuItem] = []
     
     private func createMenuItems(){
         let itClub = MenuItem.init(_title:"Italian Club", _price:7.00, _time:10, _isVeg:false, _isGF:false, _desc: "Salami, Ham, Mortadella, Capicola, Provolone, and Veggies on soft Italian bread")
@@ -96,6 +99,15 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         super.viewDidLoad()
         createMenuItems()
         loginCheck()
+        
+        searchController.searchResultsUpdater = self
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = false
+        tableView.tableHeaderView = searchController.searchBar
+        self.definesPresentationContext = true
+        
+        tableView.keyboardDismissMode = .onDrag
+        
         self.tableView.rowHeight = 60.0
         
         idx = 0
@@ -141,6 +153,14 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
 
     }
     
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredMenuItems = currentMenu.filter { MenuItem in
+            return MenuItem.title.lowercased().contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -150,6 +170,9 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        if searchController.isActive && searchController.searchBar.text != "" {
+            return filteredMenuItems.count
+        }
         return currentMenu.count
     }
     
@@ -163,9 +186,18 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         if(indexPath.row % 2 == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemDetailsTableViewCell", for:indexPath) as! ItemDetailsTableViewCell
             
-            cell.itemPrice.text = String(currentMenu[indexPath.section].price)
-            cell.itemTitle.text = currentMenu[indexPath.section].title
-            
+            if searchController.isActive && searchController.searchBar.text != ""
+            {
+                cell.itemPrice.text = String(filteredMenuItems[indexPath.section].price)
+                cell.itemTitle.text = filteredMenuItems[indexPath.section].title
+            }
+                
+            else{
+                
+                cell.itemPrice.text = String(currentMenu[indexPath.section].price)
+                cell.itemTitle.text = currentMenu[indexPath.section].title
+                
+            }
             return cell
         }
             
@@ -173,7 +205,14 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemAddTableViewCell", for:indexPath) as! ItemAddTableViewCell
             
             // Set the cell menu item object so it can be added as core data item in cart
-            cell._menuItem = currentMenu[indexPath.section]
+            if searchController.isActive && searchController.searchBar.text != ""
+            {
+                cell._menuItem = filteredMenuItems[indexPath.section]
+            }
+                
+            else{
+                cell._menuItem = currentMenu[indexPath.section]
+            }
             
             if(cell.btnDelegate == nil){
                 cell.btnDelegate = self
@@ -212,5 +251,24 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         }
 
      }
-     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // 'First Responder' is the same as 'input focus'.
+        // We are removing input focus from the text field.
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    // Called when the user touches on the main view (outside the UITextField).
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.searchController.searchBar.endEditing(true)
+    }
+}
+
+extension TootieMenuTableViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating Delegate
+    func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchText: searchController.searchBar.text!)
+    }
 }
