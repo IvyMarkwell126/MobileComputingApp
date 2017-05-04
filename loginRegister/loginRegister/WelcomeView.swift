@@ -17,15 +17,12 @@ class WelcomeView: UIViewController {
 
     var users = [NSManagedObject]()
     
-    
+    //Function that iterates through all users in core data to check who is logged in
     func loginCheck(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let usernameFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
         var fetchedUser:[NSManagedObject]? = nil
-        
         do {
             try fetchedUser = managedContext.fetch(usernameFetch) as? [NSManagedObject]//! [loggedIn]
         }
@@ -37,16 +34,14 @@ class WelcomeView: UIViewController {
         }
         if let results = fetchedUser {
             users = results
-            print("\(users.count)")
         } else {
             print("Could not fetch")
         }
-        print(users.count)
+        
+        //If a user is logged in, segue straight to the main menu
         for elt in users {
-            print(elt.value(forKey: "username")!)
             let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
             if isLoggedIn {
-                print("\(elt.value(forKey: "username")) is logged in")
                 performSegue(withIdentifier: "welcome2main", sender: nil)
                 break
             }
@@ -63,8 +58,6 @@ class WelcomeView: UIViewController {
         catch let error as NSError{
             print(error)
         }
-        
-        print("Deteted All Users")
     }
 
     override func viewDidLoad() {
@@ -73,7 +66,7 @@ class WelcomeView: UIViewController {
         picture.image = #imageLiteral(resourceName: "catchef.jpg")
         self.picture.layer.cornerRadius = picture.frame.height/2;
         self.picture.clipsToBounds = true;
-        //Uncomment this code and run to delete every user from the core data
+        //Uncomment this code and run to delete every user or comment from the core data
         //deleteCoreData(entName: "User")
         //deleteCoreData(entName: "Comment")
         
@@ -84,15 +77,4 @@ class WelcomeView: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

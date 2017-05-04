@@ -24,9 +24,6 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
-        //self.RegisterAction.layer.cornerRadius = 10;
-        
         usrField.delegate = self
         passField.delegate = self
         repassField.delegate = self
@@ -69,13 +66,11 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
         
         for elt in users{
             let testName = (elt.value(forKey: "username") as? String)!
-            print(testName, userName)
             if(testName == userName){
                 isTaken = true
                 
                 regisAlert = UIAlertController(title: "Error", message: "Username already taken", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                    //print("Ok Button Pressed 1");
                 }
                 regisAlert!.addAction(OKAction)
                 present(self.regisAlert!, animated: true, completion:nil)
@@ -88,7 +83,6 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
             if (usrField.text == "" || passField.text == "" || repassField.text == "") {
                 self.regisAlert = UIAlertController(title: "Error", message: "You must enter a value for all fields", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
                 }
                 self.regisAlert!.addAction(OKAction)
                 self.present(self.regisAlert!, animated: true, completion:nil)
@@ -97,7 +91,6 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
             else if (passWord != rePassWord){
                 self.regisAlert = UIAlertController(title: "Error", message: "Passwords do not match", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                    //print("Ok Button Pressed 1");
                 }
                 self.regisAlert!.addAction(OKAction)
                 self.present(self.regisAlert!, animated: true, completion:nil)
@@ -149,7 +142,7 @@ class registerPageViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Called when the user touches on the main view (outside the UITextField).
-    //
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

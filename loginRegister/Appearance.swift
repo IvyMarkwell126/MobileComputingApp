@@ -9,15 +9,6 @@
 import Foundation
 import UIKit
 
-// UIAppearance is a protocol which UIKit components conform to that allows properties
-// to be set at runtime for all instances of a class. For example, defining the background
-// color that all UILabels (or custom classes derived from UILabel) will use.
-//
-// To use it, simply call the appearance() method of a UIView (which all UI element classes
-// derive from) which conforms to the protocol. This gets you a proxy object which you can
-// use to make style changes on and they will automagically be applied to all instances of
-// that class in your app.
-
 extension UIButton {
     dynamic var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
@@ -44,14 +35,25 @@ extension UIViewController{
 }
 
 class Appearance {
+    
+    static var redBtn:CGFloat = 170/255.0
+    static var greBtn:CGFloat = 250/225.0
+    static var bluBtn:CGFloat = 240/255.0
+    static var redView:CGFloat = 10/255.0
+    static var greView:CGFloat = 170/225.0
+    static var bluView:CGFloat = 255/255.0
+    
     class func setInitialAppTheme() {
         UIButton.appearance().cornerRadius = 10;
-        //UIButton.appearance().backgroundColor = UIColor.init(red: 171/255.0, green: 250/255.0, blue: 242/255.0, alpha: 1.0)
+        UIButton.appearance().backgroundColor = UIColor.init(red: redBtn, green: greBtn, blue: bluBtn, alpha: 1.0)
         //UILabel.appearance().backgroundColor = UIColor.init(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.0)
         
-        //UIView.appearance().backgroundColor = UIColor.init(red: 255/255.0, green: 255/255.0, blue: 0/255.0, alpha: 1.0)
+        //MyCustomView.appearance().backgroundColor = UIColor.init(red: redView, green: greView, blue: bluView, alpha: 1.0)
+        //UITableView.appearance().backgroundColor = UIColor.init(red: redView, green: greView, blue: bluView, alpha: 1.0)
+        //UITableViewCell.appearance().backgroundColor = UIColor.init(red: redView, green: greView, blue: bluView, alpha: 1.0)
+        //ItemDetailsTableViewCell.appearance().backgroundColor = UIColor.init(red: redView, green: greView, blue: bluView, alpha: 1.0)
         
-        //UIButton.appearance().titleLabelFont = UIFont(name: "Noteworthy", size: 17)
+        UIButton.appearance().titleLabelFont = UIFont(name: "Noteworthy", size: 17)
         //UILabel.appearance().defaultFont = UIFont(name: "Noteworthy", size: 17)
     }
 }

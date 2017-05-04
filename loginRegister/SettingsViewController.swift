@@ -32,9 +32,7 @@ class SettingsViewController: UIViewController {
     func loginCheck(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let usernameFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
         var fetchedUser:[NSManagedObject]? = nil
         
         do {
@@ -48,7 +46,6 @@ class SettingsViewController: UIViewController {
         }
         if let results = fetchedUser {
             users = results
-            print("\(users.count)")
         } else {
             print("Could not fetch")
         }
@@ -56,9 +53,7 @@ class SettingsViewController: UIViewController {
         for elt in users {
             let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
             if isLoggedIn {
-                
                 user = elt
-                
             }
         }
     }
@@ -118,7 +113,6 @@ class SettingsViewController: UIViewController {
         default:
             isGlute = false
         }
-        print(isVegan, isGlute)
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
@@ -147,7 +141,6 @@ class SettingsViewController: UIViewController {
         default:
             selectedIdx = 0
         }
-        print(selectedIdx)
         */
         if let delegate = btnDelegate{
             delegate.changeColor(idx: selectedIdx)

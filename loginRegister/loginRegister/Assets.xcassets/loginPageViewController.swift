@@ -23,18 +23,6 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         self.loadData()
         
-        /*for elt in users {
-            let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
-            if isLoggedIn {
-                print("\(elt.value(forKey: "username")) is logged in")
-                performSegue(withIdentifier: "login2main", sender: nil)
-                break
-            }
-        }*/
-        
-        // Do any additional setup after loading the view.
-        //self.LoginAction.layer.cornerRadius = 10;
-        
         usernameField.delegate = self
         passwordField.delegate = self
     }
@@ -74,11 +62,9 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
         for elt in users {
             let testName = (elt.value(forKey: "username") as? String)!
             let testPass = (elt.value(forKey: "password") as? String)!
-            print ("\(testName) \(testPass)")
             if(userName == "" || passWord == ""){
                 self.loginAlert = UIAlertController(title: "Error", message: "You cannot leave either field blank", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                    //print("Ok Button Pressed 1");
                 }
                 self.loginAlert!.addAction(OKAction)
                 self.present(self.loginAlert!, animated: true, completion:nil)
@@ -107,7 +93,6 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
         if(!loggedin){
             self.loginAlert = UIAlertController(title: "Error", message: "Username or password is incorrect", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
             }
             self.loginAlert!.addAction(OKAction)
             self.present(self.loginAlert!, animated: true, completion:nil)
@@ -122,7 +107,7 @@ class loginPageViewController: UIViewController, UITextFieldDelegate {
     }
     
     // Called when the user touches on the main view (outside the UITextField).
-    //
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

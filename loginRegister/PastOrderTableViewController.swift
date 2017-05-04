@@ -67,9 +67,6 @@ class PastOrderTableViewController: UITableViewController, DetailBtnDelegate {
         orders.popLast()
         prices.popLast()
         times.popLast()
-        print(orders)
-        print(prices)
-        print(times)
     }
     
     override func viewDidLoad() {
@@ -92,7 +89,14 @@ class PastOrderTableViewController: UITableViewController, DetailBtnDelegate {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        var rows = orders.count
+        if(rows > 3){
+            rows = 3
+        }
+        else if(rows == 0){
+            rows = 1
+        }
+        return rows
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,13 +155,9 @@ class PastOrderTableViewController: UITableViewController, DetailBtnDelegate {
     
     func showAlert(cell: OrderViewCell) {
         referenceIndex = (-1*cell.rowIndex!)+(orders.count-1)
-        print(referenceIndex)
         performSegue(withIdentifier: "reorder2confirm", sender: nil)
     }
-    
-    
-    
-    
+
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -168,15 +168,11 @@ class PastOrderTableViewController: UITableViewController, DetailBtnDelegate {
         let hour = calendar.component(.hour, from: date)
         //let hour = 15
         let minute = calendar.component(.minute, from: date)
-        print("check time")
-        print(hour)
-        
         
         if(hour < 10 || hour > 18)
         {
             self.regisAlert = UIAlertController(title: "Sorry!", message: "We are closed!", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
             }
             self.regisAlert!.addAction(OKAction)
             self.present(self.regisAlert!, animated: true, completion:nil)
@@ -185,18 +181,10 @@ class PastOrderTableViewController: UITableViewController, DetailBtnDelegate {
         if(segue.identifier == "reorder2confirm")
         {
             let viewController = segue.destination as! ConfirmationViewController
-            
-            //let idx = tableView.indexPath(for: cell)!.row
-            //let currentCell = tableView(pastOrders:UITableViewController, cellForRowAt: self.idx) as! OrderViewCell
-            print("************************")
-            print(self.referenceIndex)
-            print(self.prices)
-            print("************************")
-            
+
             if (self.referenceIndex < 0) {
                 self.regisAlert = UIAlertController(title: "Error", message: "You don't have any orders yet!", preferredStyle: UIAlertControllerStyle.alert)
                 let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                    //print("Ok Button Pressed 1");
                 }
                 self.regisAlert!.addAction(OKAction)
                 self.present(self.regisAlert!, animated: true, completion:nil)

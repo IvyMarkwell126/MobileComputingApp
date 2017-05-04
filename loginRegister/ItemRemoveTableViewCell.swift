@@ -20,7 +20,6 @@ class ItemRemoveTableViewCell: UITableViewCell {
     var itemTime:Int?
     
     @IBAction func itemRemoveBtn(_ sender: Any) {
-        print(index)
         if let delegate = btnDelegate{
             delegate.removeItem(passedName: itemName!, passedPrice: itemPrice!, passedTime: itemTime!)
         }

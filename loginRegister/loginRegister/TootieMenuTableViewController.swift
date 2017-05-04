@@ -18,8 +18,6 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     private var user:NSManagedObject?
     
     private var menuItems:[MenuItem] = []
-    //private var veganItems:[MenuItem] = []
-    //private var gfItems:[MenuItem] = []
     private var currentMenu:[MenuItem] = []
     
     private var isVegan:Bool?
@@ -28,8 +26,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     @IBOutlet var menuTableView: UITableView!
     private var item:MenuItem?
     
-    private func createMenuItems()
-    {
+    private func createMenuItems(){
         let itClub = MenuItem.init(_title:"Italian Club", _price:7.00, _time:10, _isVeg:false, _isGF:false, _desc: "Salami, Ham, Mortadella, Capicola, Provolone, and Veggies on soft Italian bread")
         let blt = MenuItem.init(_title:"BLT", _price:5.95, _time:7, _isVeg:false, _isGF:false, _desc: "Classic Bacon, Lettuce, and Tomato on white bread")
         let rueben = MenuItem.init(_title:"Rueben", _price:5.95, _time:10, _isVeg:false, _isGF:false, _desc: "Corned Beef, Russian dressing, SauerKraut, and Swiss cheese on Jewish Rye bread")
@@ -69,9 +66,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
     func loginCheck(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
-        
         let usernameFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
-        
         var fetchedUser:[NSObject]?
         
         do {
@@ -85,7 +80,6 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         }
         if let results = fetchedUser {
             users = results as! [NSManagedObject]
-            print("\(users.count)")
         } else {
             print("Could not fetch")
         }
@@ -93,9 +87,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         for elt in users {
             let isLoggedIn = (elt.value(forKey: "loggedIn") as? Bool)!
             if isLoggedIn {
-                
                 user = elt
-                
             }
         }
     }
@@ -119,14 +111,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         isGF = user?.value(forKey: "glutenFree")
             as! Bool?
         
-        print("User is Vegan: " + String(describing: isVegan!))
-        print("User is Gluten Free: " + String(describing: isGF!))
-        
-        //print(isGF)
-        //print(isVegan)
-        
-        if (isGF! && isVegan!)
-        {
+        if (isGF! && isVegan!){
             for elt in menuItems {
                 if(elt.isGlute && elt.isVegan){
                     currentMenu.append(elt)
@@ -134,8 +119,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
             }
         }
             
-        else if(isGF! && !isVegan!)
-        {
+        else if(isGF! && !isVegan!){
             for elt in menuItems {
                 if(elt.isGlute){
                     currentMenu.append(elt)
@@ -143,8 +127,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
             }
         }
             
-        else if(!isGF! && isVegan!)
-        {
+        else if(!isGF! && isVegan!){
             for elt in menuItems {
                 if(elt.isVegan){
                     currentMenu.append(elt)
@@ -152,8 +135,7 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
             }
         }
             
-        else
-        {
+        else{
             currentMenu = menuItems
         }
 
@@ -176,11 +158,9 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
         return 2
     }
     
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Configure the cell...
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemDetailsTableViewCell", for:indexPath) as! ItemDetailsTableViewCell
             
             cell.itemPrice.text = String(currentMenu[indexPath.section].price)
@@ -199,32 +179,18 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
                 cell.btnDelegate = self
             }
             
-    /*
-            cell.rowIndex = idx
-            print("&&&\(idx)&&&")
-            idx += 1
-            if(idx >= currentMenu.count){
-                idx = 0
-            }
-    */
             return cell
         }
         
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("You selected cell #\(indexPath.row)!")
         
         // Get Cell Label
         let indexPath = tableView.indexPathForSelectedRow!
         let currentCell = tableView.cellForRow(at: indexPath)! as UITableViewCell
         
-        
-        //item = currentCell._menuItem
-        //valueToPass = currentCell. item object to pass
-        //performSegueWithIdentifier("yourSegueIdentifer", sender: self)
     }
-    
     
     func showDetail(cell: ItemAddTableViewCell) {
         selectedItem = cell._menuItem!
@@ -247,5 +213,4 @@ class TootieMenuTableViewController: UITableViewController, ItemDetailDelegate {
 
      }
      
-    
 }

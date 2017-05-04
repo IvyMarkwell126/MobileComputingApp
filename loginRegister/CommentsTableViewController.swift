@@ -28,7 +28,7 @@ class CommentsTableViewController: UITableViewController, UITextFieldDelegate {
                 comments.append(elt)
             }
         }
-
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -57,7 +57,6 @@ class CommentsTableViewController: UITableViewController, UITextFieldDelegate {
         // #warning Incomplete implementation, return the number of rows
         
         let cell = tableView.dequeueReusableCell(withIdentifier:"CommentsTableViewCell", for:indexPath) as! CommentsTableViewCell
-        print("here~~~~~~~~~~~~~~~~")
         var elt = comments[indexPath.row]
         cell.username.text = (elt.value(forKey: "user") as? String)!
         cell.comment.text = (elt.value(forKey: "remark") as? String)!
@@ -89,7 +88,6 @@ class CommentsTableViewController: UITableViewController, UITextFieldDelegate {
         else{
             var regisAlert = UIAlertController(title: "Error", message: "Cannot submit empty comment", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
             }
             regisAlert.addAction(OKAction)
             present(regisAlert, animated: true, completion:nil)

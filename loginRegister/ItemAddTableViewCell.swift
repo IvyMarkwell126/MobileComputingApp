@@ -23,8 +23,7 @@ class ItemAddTableViewCell: UITableViewCell {
     var rowIndex:Int?
 
     // Storing cart items in core data
-    func addItem(_itemTitle: String, _itemPrice:Float, _itemTime:Int)
-    {
+    func addItem(_itemTitle: String, _itemPrice:Float, _itemTime:Int){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let managedContext = appDelegate.persistentContainer.viewContext
         
@@ -48,18 +47,12 @@ class ItemAddTableViewCell: UITableViewCell {
         }
     }
 
-    @IBAction func itemAddBtn(_ sender: Any)
-    {
-        print(_menuItem?.title)
-        print(_menuItem?.price)
-        
+    @IBAction func itemAddBtn(_ sender: Any){
         // Will add the selected item to the session cart
         addItem(_itemTitle: (_menuItem?.title)!, _itemPrice: (_menuItem?.price)!, _itemTime: (_menuItem?.time)!)
     }
     
     @IBAction func itemDetailsBtn(_ sender: Any) {
-        print(self.rowIndex)
-        print("************button pressed*************")
         if let delegate = btnDelegate{
             delegate.showDetail(cell: self)
         }
@@ -75,5 +68,4 @@ class ItemAddTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

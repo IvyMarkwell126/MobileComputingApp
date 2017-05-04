@@ -29,11 +29,9 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
     
     @IBOutlet weak var previewTotal: UILabel!
     
-    @IBAction func confirmOrderBtn(_ sender: Any)
-    {
+    @IBAction func confirmOrderBtn(_ sender: Any){
         // Delete the items in the cart (core data) so they do not persist in an additional order
         // Will segue to ConfirmationViewController, which has the item details
-        
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName:"Item")
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
@@ -46,13 +44,10 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
         let hour = calendar.component(.hour, from: date)
         //let hour = 15
         let minute = calendar.component(.minute, from: date)
-        print("check time")
-        print(hour)
         
         if(hour < 10 || hour > 18){
             hoursAlert = UIAlertController(title: "Sorry!", message: "We are closed!", preferredStyle: UIAlertControllerStyle.alert)
             let OKAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (action:UIAlertAction) in
-                //print("Ok Button Pressed 1");
             }
             hoursAlert!.addAction(OKAction)
             present(self.hoursAlert!, animated: true, completion:nil)
@@ -149,7 +144,6 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
         }
     }
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 60.0
@@ -158,7 +152,6 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
             var testName = (elt.value(forKey: "title") as? String)!
             var testPrice = (elt.value(forKey: "price") as? Float)!
             var testTime = (elt.value(forKey: "time") as? Int)!
-            print ("\(testPrice) \(testTime)")
             
             totalPrice += testPrice
             totalTime += testTime
@@ -198,16 +191,14 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //reuse ids: itemPreviewTableViewCell, itemRemoveTableViewCell
         
-        if(indexPath.row % 2 == 0)
-        {
+        if(indexPath.row % 2 == 0){
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemPreviewTableViewCell", for:indexPath) as! ItemPreviewTableViewCell
             cell.titlePreview.text = (cart[indexPath.section].value(forKey: "title") as? String)!
             cell.itemPricePreview.text = String((cart[indexPath.section].value(forKey: "price") as? Float)!)
             return cell
         }
         
-        else
-        {
+        else{
             let cell = tableView.dequeueReusableCell(withIdentifier:"itemRemoveTableViewCell") as! ItemRemoveTableViewCell
             cell.itemName = cart[indexPath.section].value(forKey: "title") as? String
             cell.itemTime = cart[indexPath.section].value(forKey: "time") as? Int
@@ -226,7 +217,6 @@ class PreviewTableViewController: UITableViewController, RemoveBtnDelegate {
         
         for elt in cart {
             if elt.value(forKey: "title") as? String == passedName {
-                print(index, cart.count)
                 cart.remove(at: index)
                 totalTime -= (elt.value(forKey: "time") as? Int)!
                 totalPrice -= (elt.value(forKey: "price") as? Float)!
