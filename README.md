@@ -1,4 +1,4 @@
-## Tootie's IOS App
+## Tootie's iOS App
 
 ### Overview
 Created an imaginary resturant that uses our application to allow users to have food delivered to them.
